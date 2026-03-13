@@ -1,389 +1,351 @@
 import {
-  Document,
-  Page,
-  Text,
-  View,
-  StyleSheet,
-  Font,
+    Document,
+    Page,
+    Text,
+    View,
+    StyleSheet,
+    Font,
+    Link,
 } from "@react-pdf/renderer";
 import type { ResumeData } from "./types";
 
-// ================= FONT =================
+// ================= FONTS (ATS-friendly) =================
 Font.register({
-  family: "OpenSans",
-  fonts: [
-    {
-      src: "https://cdn.jsdelivr.net/fontsource/fonts/open-sans@latest/latin-400-normal.ttf",
-      fontWeight: 400,
-    },
-    {
-      src: "https://cdn.jsdelivr.net/fontsource/fonts/open-sans@latest/latin-600-normal.ttf",
-      fontWeight: 600,
-    },
-    {
-      src: "https://cdn.jsdelivr.net/fontsource/fonts/open-sans@latest/latin-700-normal.ttf",
-      fontWeight: 700,
-    },
-  ],
+    family: "OpenSans",
+    fonts: [
+        {
+            src: "https://cdn.jsdelivr.net/fontsource/fonts/open-sans@latest/latin-400-normal.ttf",
+            fontWeight: 400,
+        },
+        {
+            src: "https://cdn.jsdelivr.net/fontsource/fonts/open-sans@latest/latin-600-normal.ttf",
+            fontWeight: 600,
+        },
+        {
+            src: "https://cdn.jsdelivr.net/fontsource/fonts/open-sans@latest/latin-700-normal.ttf",
+            fontWeight: 700,
+        },
+    ],
 });
 Font.registerHyphenationCallback((word) => [word]);
 
-// ================= STYLES =================
-const styles = StyleSheet.create({
-  page: {
-    fontFamily: "OpenSans",
-    fontSize: 10,
-    color: "#111827",
-    backgroundColor: "#ffffff",
-    padding: 0,
-  },
+// ================= HARVARD ATS STYLES =================
+// Clean, single-column layout optimized for ATS parsers.
+// No tables, no columns, no graphics — pure text hierarchy.
+const s = StyleSheet.create({
+    page: {
+        fontFamily: "OpenSans",
+        fontSize: 10,
+        color: "#1a1a1a",
+        backgroundColor: "#ffffff",
+        paddingTop: 36,
+        paddingBottom: 36,
+        paddingHorizontal: 48,
+    },
 
-  /* ---------- HEADER ---------- */
-  headerRow: {
-    flexDirection: "row",
-    width: "100%",
-    minHeight: 150,
-  },
-  headerLeft: {
-    width: "38%",
-    backgroundColor: "#0b0b0b",
-    paddingHorizontal: 28,
-    paddingVertical: 26,
-    justifyContent: "center",
-  },
-  headerLine: {
-    width: 50,
-    height: 3,
-    backgroundColor: "#ffffff",
-    marginBottom: 14,
-  },
-  headerNameRow: {
-    flexDirection: "row",
-    alignItems: "flex-end",
-    justifyContent: "space-between",
-    gap: 10,
-  },
-  headerName: {
-    color: "#ffffff",
-    fontSize: 30,
-    fontWeight: 400,
-    lineHeight: 1.1,
-  },
-  headerLastName: {
-    color: "#ffffff",
-    fontSize: 26,
-    fontWeight: 700,
-    letterSpacing: 0.5,
-    marginTop: 6,
-  },
+    // Header — centered, clean
+    headerName: {
+        fontSize: 22,
+        fontWeight: 700,
+        textAlign: "center",
+        textTransform: "uppercase",
+        letterSpacing: 1.5,
+        marginBottom: 4,
+    },
+    headerRole: {
+        fontSize: 12,
+        fontWeight: 600,
+        textAlign: "center",
+        color: "#333333",
+        marginBottom: 6,
+    },
+    headerContact: {
+        fontSize: 9,
+        textAlign: "center",
+        color: "#555555",
+        marginBottom: 2,
+    },
+    headerLink: {
+        fontSize: 9,
+        color: "#555555",
+        textDecoration: "none",
+    },
 
-  /* ---- Experience badge ---- */
-  expStackBadge: {
-    alignSelf: "flex-end",
-    alignItems: "flex-end",
-    paddingHorizontal: 10,
-    paddingVertical: 8,
-    borderRadius: 6,
-    minWidth: 92,
-  },
-  expStackTopRow: {
-    flexDirection: "row",
-    alignItems: "flex-end",
-    justifyContent: "flex-end",
-    marginBottom: 6,
-  },
-  expStackPlus: {
-    color: "rgba(255,255,255,0.9)",
-    fontSize: 14,
-    fontWeight: 700,
-    marginRight: 2,
-    lineHeight: 1,
-  },
-  expStackValue: {
-    color: "#ffffff",
-    fontSize: 26,
-    fontWeight: 700,
-    lineHeight: 1,
-  },
-  expStackUnit: {
-    color: "rgba(255,255,255,0.9)",
-    fontSize: 9,
-    fontWeight: 600,
-    marginLeft: 4,
-    lineHeight: 1,
-    textTransform: "uppercase",
-  },
-  expStackLabel: {
-    color: "rgba(229,231,235,0.95)",
-    fontSize: 7,
-    lineHeight: 1.2,
-    letterSpacing: 0.6,
-    textTransform: "uppercase",
-    marginTop: 2,
-    textAlign: "right",
-  },
+    // Dividers
+    divider: {
+        borderBottomWidth: 1.5,
+        borderBottomColor: "#1a1a1a",
+        marginTop: 10,
+        marginBottom: 8,
+    },
+    thinDivider: {
+        borderBottomWidth: 0.5,
+        borderBottomColor: "#cccccc",
+        marginTop: 6,
+        marginBottom: 6,
+    },
 
-  headerRight: {
-    width: "62%",
-    backgroundColor: "#ffffff",
-    paddingHorizontal: 34,
-    paddingVertical: 26,
-    justifyContent: "center",
-  },
-  headerRole: {
-    fontSize: 16,
-    fontWeight: 700,
-    textTransform: "uppercase",
-    marginBottom: 14,
-  },
-  contactItem: {
-    fontSize: 10,
-    marginBottom: 6,
-    color: "#374151",
-  },
+    // Section
+    sectionTitle: {
+        fontSize: 11,
+        fontWeight: 700,
+        textTransform: "uppercase",
+        letterSpacing: 1,
+        marginBottom: 6,
+    },
+    section: {
+        marginBottom: 10,
+    },
 
-  /* ---------- BODY ---------- */
-  bodyRow: { flexDirection: "row", width: "100%" },
-  leftCol: {
-    width: "38%",
-    backgroundColor: "#f3f4f6",
-    paddingHorizontal: 28,
-    paddingTop: 18,
-    paddingBottom: 24,
-  },
-  rightCol: {
-    width: "62%",
-    backgroundColor: "#ffffff",
-    paddingHorizontal: 34,
-    paddingTop: 18,
-    paddingBottom: 24,
-  },
+    // Summary
+    summary: {
+        fontSize: 10,
+        color: "#333333",
+        lineHeight: 1.5,
+    },
 
-  section: { marginBottom: 16 },
-  sectionTitle: {
-    fontSize: 12,
-    fontWeight: 700,
-    textTransform: "uppercase",
-    marginBottom: 8,
-  },
-  paragraph: { fontSize: 10, color: "#374151", lineHeight: 1.5 },
+    // Experience / Education blocks
+    entryHeader: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "flex-start",
+        marginBottom: 2,
+    },
+    entryTitle: {
+        fontSize: 10,
+        fontWeight: 700,
+    },
+    entrySubtitle: {
+        fontSize: 10,
+        fontWeight: 400,
+        color: "#555555",
+    },
+    entryDate: {
+        fontSize: 9,
+        color: "#555555",
+        textAlign: "right",
+    },
+    entryLocation: {
+        fontSize: 9,
+        color: "#555555",
+        textAlign: "right",
+    },
 
-  listItem: { flexDirection: "row", marginBottom: 6 },
-  check: { width: 12, fontSize: 10, fontWeight: 700 },
-  listText: { flex: 1, fontSize: 10, color: "#374151" },
+    // Bullet points
+    bulletRow: {
+        flexDirection: "row",
+        marginBottom: 3,
+        paddingLeft: 8,
+    },
+    bulletDot: {
+        width: 10,
+        fontSize: 10,
+    },
+    bulletText: {
+        flex: 1,
+        fontSize: 10,
+        color: "#333333",
+        lineHeight: 1.45,
+    },
 
-  expBlock: { marginBottom: 14 },
-  expCompany: { fontSize: 11, fontWeight: 700, textTransform: "uppercase" },
-  expMeta: { fontSize: 9, color: "#6b7280", marginTop: 2, marginBottom: 6 },
-  bulletRow: { flexDirection: "row", marginBottom: 4 },
-  bulletDot: { width: 12, fontSize: 10, fontWeight: 700 },
-  bulletText: { flex: 1, fontSize: 10, color: "#374151", lineHeight: 1.4 },
+    // Skills — comma-separated (ATS-friendly)
+    skillLine: {
+        fontSize: 10,
+        color: "#333333",
+        lineHeight: 1.5,
+        marginBottom: 3,
+    },
+    skillCategory: {
+        fontWeight: 700,
+    },
 
-  eduTitle: { fontSize: 11, fontWeight: 700 },
-  eduMeta: { fontSize: 9, color: "#6b7280", marginTop: 2 },
-  eduSubtitle: { fontSize: 10, color: "#374151", marginTop: 3, lineHeight: 1.35 },
-  certTitle: { fontSize: 11, fontWeight: 700 },
-  certMeta: { fontSize: 9, color: "#6b7280", marginTop: 2 },
-  certSubtitle: { fontSize: 10, color: "#374151", marginTop: 3, lineHeight: 1.35 },
+    // Certification entry
+    certEntry: {
+        marginBottom: 4,
+    },
+    certName: {
+        fontSize: 10,
+        fontWeight: 600,
+    },
+    certMeta: {
+        fontSize: 9,
+        color: "#555555",
+    },
 });
+
+// ================= HELPERS =================
+const isEs = (locale: string) => locale.startsWith("es");
+
+const label = (locale: string, en: string, es: string) =>
+    isEs(locale) ? es : en;
 
 // ================= COMPONENT =================
 type Props = { data: ResumeData };
 
 export function ResumeDocumentTemplate({ data }: Props) {
-  const { person, experiences, education, skills } = data;
+    const { person, skills, experiences, education, certifications, locale } = data;
 
-  const firstName = person.fullName?.split(" ")[0] ?? person.fullName;
-  const lastName =
-    person.fullName?.split(" ").slice(1).join(" ") ?? "";
-
-  /* -------- EXPERIENCE YEARS CALC -------- */
-  const monthNames: Record<string, number> = {
-    january: 0, february: 1, march: 2, april: 3, may: 4, june: 5,
-    july: 6, august: 7, september: 8, october: 9, november: 10, december: 11,
-    enero: 0, febrero: 1, marzo: 2, abril: 3, mayo: 4, junio: 5,
-    julio: 6, agosto: 7, septiembre: 8, setiembre: 8, octubre: 9, noviembre: 10, diciembre: 11,
-  };
-
-  const parseMonthYear = (value?: string | null): Date | null => {
-    if (!value) return null;
-    const v = value.toLowerCase().trim();
-    if (v === "present" || v === "presente") return new Date();
-    const [m, y] = v.split(" ");
-    if (monthNames[m] === undefined || !y) return null;
-    return new Date(Number(y), monthNames[m], 1);
-  };
-
-  const totalMonths = experiences.reduce((sum, e) => {
-    const s = parseMonthYear(e.startDate);
-    const end = parseMonthYear(e.endDate);
-    if (!s || !end) return sum;
-    return sum + (end.getFullYear() - s.getFullYear()) * 12 + (end.getMonth() - s.getMonth()) + 1;
-  }, 0);
-
-  const years = Math.max(0, Math.floor(totalMonths / 12));
-
-  const isCertification = (degree?: string | null) =>
-    (degree ?? "").toLowerCase().includes("certif");
-
-  const formalEducation = education.filter((e) => !isCertification(e.degree));
-  const certifications = education.filter((e) => isCertification(e.degree));
-
-  const formatDateRange = (start?: string | null, end?: string | null) => {
-    if (!start && !end) return "";
-    if (start && end) return `${start} – ${end}`;
-    return start ?? end ?? "";
-  };
-
-  return (
-    <Document title={`${person.fullName} - CV`}>
-      <Page size="A4" style={styles.page}>
-        {/* HEADER */}
-        <View style={styles.headerRow}>
-          <View style={styles.headerLeft}>
-            <View style={styles.headerLine} />
-            <View style={styles.headerNameRow}>
-              <View>
-                <Text style={styles.headerName}>{firstName}</Text>
-                <Text style={styles.headerLastName}>{lastName.toUpperCase()}</Text>
-              </View>
-
-              <View style={styles.expStackBadge}>
-                <View style={styles.expStackTopRow}>
-                  <Text style={styles.expStackPlus}>+</Text>
-                  <Text style={styles.expStackValue}>{years}</Text>
-                  <Text style={styles.expStackUnit}>
-                    {data.locale === "es" ? "AÑOS" : "YRS"}
-                  </Text>
-                </View>
-                <Text style={styles.expStackLabel}>
-                  {data.locale === "es"
-                    ? "EXPERIENCIA\nPROFESIONAL"
-                    : "PROFESSIONAL\nEXPERIENCE"}
+    return (
+        <Document
+            title={`${person.fullName} - ${isEs(locale) ? "CV" : "Resume"}`}
+            author={person.fullName}
+            subject={person.role}
+        >
+            <Page size="A4" style={s.page}>
+                {/* ========== HEADER ========== */}
+                <Text style={s.headerName}>{person.fullName}</Text>
+                <Text style={s.headerRole}>{person.role}</Text>
+                <Text style={s.headerContact}>
+                    {person.location} · {person.email}
+                    {person.phone ? ` · ${person.phone}` : ""}
                 </Text>
-              </View>
-            </View>
-          </View>
-
-          <View style={styles.headerRight}>
-            <Text style={styles.headerRole}>{person.role}</Text>
-            <Text style={styles.contactItem}>{person.location}</Text>
-            {person.phone && <Text style={styles.contactItem}>{person.phone}</Text>}
-            <Text style={styles.contactItem}>{person.email}</Text>
-          </View>
-        </View>
-
-        {/* BODY */}
-        <View style={styles.bodyRow}>
-          {/* LEFT */}
-          <View style={styles.leftCol}>
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>
-                {data.locale === "es" ? "Sobre mí" : "About Me"}
-              </Text>
-              <Text style={styles.paragraph}>{person.shortBio}</Text>
-            </View>
-
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>
-                {data.locale === "es" ? "Programas" : "Tools"}
-              </Text>
-              {skills.tooling?.map((s, i) => (
-                <View key={i} style={styles.listItem}>
-                  <Text style={styles.check}>✓</Text>
-                  <Text style={styles.listText}>{s}</Text>
-                </View>
-              ))}
-            </View>
-
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>
-                {data.locale === "es" ? "Habilidades" : "Skills"}
-              </Text>
-              {[...skills.primary, ...skills.secondary].map((s, i) => (
-                <View key={i} style={styles.listItem}>
-                  <Text style={styles.check}>✓</Text>
-                  <Text style={styles.listText}>{s}</Text>
-                </View>
-              ))}
-            </View>
-          </View>
-
-          {/* RIGHT */}
-          <View style={styles.rightCol}>
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>
-                {data.locale === "es" ? "Experiencia Profesional" : "Experience"}
-              </Text>
-
-              {experiences.map((exp, i) => (
-                <View key={i} style={styles.expBlock}>
-                  <Text style={styles.expCompany}>{exp.company}</Text>
-                  <Text style={styles.expMeta}>
-                    {exp.title} · {exp.startDate} – {exp.endDate}
-                  </Text>
-
-                  {exp.bullets?.map((b, j) => (
-                    <View key={j} style={styles.bulletRow}>
-                      <Text style={styles.bulletDot}>•</Text>
-                      <Text style={styles.bulletText}>{b}</Text>
+                {(person.linkedin || person.github) && (
+                    <View
+                        style={{
+                            flexDirection: "row",
+                            justifyContent: "center",
+                            gap: 12,
+                            marginTop: 2,
+                        }}
+                    >
+                        {person.linkedin && (
+                            <Link src={person.linkedin} style={s.headerLink}>
+                                LinkedIn: {person.linkedin.replace("https://www.", "")}
+                            </Link>
+                        )}
+                        {person.github && (
+                            <Link src={person.github} style={s.headerLink}>
+                                GitHub: {person.github.replace("https://", "")}
+                            </Link>
+                        )}
                     </View>
-                  ))}
-                </View>
-              ))}
-            </View>
+                )}
 
-            <View style={styles.section}>
-              <Text style={styles.sectionTitle}>
-                {data.locale === "es" ? "Educación" : "Education"}
-              </Text>
+                <View style={s.divider} />
 
-              {formalEducation.map((edu, i) => (
-                <View key={i} style={{ marginBottom: 10 }}>
-                  <Text style={styles.eduTitle}>
-                    {edu.degree}
-                    {edu.field ? ` — ${edu.field}` : ""}
-                  </Text>
-                  <Text style={styles.eduMeta}>
-                    {edu.institution}
-                    {formatDateRange(edu.startDate, edu.endDate)
-                      ? ` · ${formatDateRange(edu.startDate, edu.endDate)}`
-                      : ""}
-                  </Text>
-                  {edu.description ? (
-                    <Text style={styles.eduSubtitle}>{edu.description}</Text>
-                  ) : null}
-                </View>
-              ))}
-            </View>
-
-            {certifications.length > 0 ? (
-              <View style={styles.section}>
-                <Text style={styles.sectionTitle}>
-                  {data.locale === "es" ? "Certificaciones" : "Certifications"}
-                </Text>
-
-                {certifications.map((cert, i) => (
-                  <View key={i} style={{ marginBottom: 10 }}>
-                    <Text style={styles.certTitle}>
-                      {cert.description ?? cert.field ?? cert.degree}
+                {/* ========== PROFESSIONAL SUMMARY ========== */}
+                <View style={s.section}>
+                    <Text style={s.sectionTitle}>
+                        {label(locale, "PROFESSIONAL SUMMARY", "PERFIL PROFESIONAL")}
                     </Text>
-                    <Text style={styles.certMeta}>
-                      {cert.institution}
-                      {formatDateRange(cert.startDate, cert.endDate)
-                        ? ` · ${formatDateRange(cert.startDate, cert.endDate)}`
-                        : ""}
+                    <Text style={s.summary}>{person.shortBio}</Text>
+                </View>
+
+                <View style={s.thinDivider} />
+
+                {/* ========== EXPERIENCE ========== */}
+                <View style={s.section}>
+                    <Text style={s.sectionTitle}>
+                        {label(locale, "PROFESSIONAL EXPERIENCE", "EXPERIENCIA PROFESIONAL")}
                     </Text>
-                    {cert.field && cert.description ? (
-                      <Text style={styles.certSubtitle}>{cert.field}</Text>
-                    ) : null}
-                  </View>
-                ))}
-              </View>
-            ) : null}
-          </View>
-        </View>
-      </Page>
-    </Document>
-  );
+                    {experiences.map((exp, i) => (
+                        <View key={i} style={{ marginBottom: i < experiences.length - 1 ? 10 : 0 }}>
+                            <View style={s.entryHeader}>
+                                <View style={{ flex: 1 }}>
+                                    <Text style={s.entryTitle}>
+                                        {exp.title} — {exp.company}
+                                    </Text>
+                                </View>
+                                <View style={{ alignItems: "flex-end" }}>
+                                    <Text style={s.entryDate}>
+                                        {exp.startDate} – {exp.endDate}
+                                    </Text>
+                                    {exp.location && (
+                                        <Text style={s.entryLocation}>{exp.location}</Text>
+                                    )}
+                                </View>
+                            </View>
+                            {exp.bullets.map((bullet, j) => (
+                                <View key={j} style={s.bulletRow}>
+                                    <Text style={s.bulletDot}>•</Text>
+                                    <Text style={s.bulletText}>{bullet}</Text>
+                                </View>
+                            ))}
+                        </View>
+                    ))}
+                </View>
+
+                <View style={s.thinDivider} />
+
+                {/* ========== EDUCATION ========== */}
+                {education.length > 0 && (
+                    <View style={s.section}>
+                        <Text style={s.sectionTitle}>
+                            {label(locale, "EDUCATION", "FORMACIÓN ACADÉMICA")}
+                        </Text>
+                        {education.map((edu, i) => (
+                            <View key={i} style={{ marginBottom: i < education.length - 1 ? 6 : 0 }}>
+                                <View style={s.entryHeader}>
+                                    <View style={{ flex: 1 }}>
+                                        <Text style={s.entryTitle}>{edu.degree}</Text>
+                                        <Text style={s.entrySubtitle}>{edu.institution}</Text>
+                                    </View>
+                                    <Text style={s.entryDate}>
+                                        {edu.startDate}
+                                        {edu.endDate ? ` – ${edu.endDate}` : ""}
+                                    </Text>
+                                </View>
+                                {edu.description && (
+                                    <Text style={s.summary}>{edu.description}</Text>
+                                )}
+                            </View>
+                        ))}
+                    </View>
+                )}
+
+                <View style={s.thinDivider} />
+
+                {/* ========== SKILLS (comma-separated for ATS) ========== */}
+                <View style={s.section}>
+                    <Text style={s.sectionTitle}>
+                        {label(locale, "TECHNICAL SKILLS", "HABILIDADES TÉCNICAS")}
+                    </Text>
+                    {skills.primary.length > 0 && (
+                        <Text style={s.skillLine}>
+                            <Text style={s.skillCategory}>
+                                {label(locale, "Core: ", "Principales: ")}
+                            </Text>
+                            {skills.primary.join(", ")}
+                        </Text>
+                    )}
+                    {skills.secondary.length > 0 && (
+                        <Text style={s.skillLine}>
+                            <Text style={s.skillCategory}>
+                                {label(locale, "Additional: ", "Adicionales: ")}
+                            </Text>
+                            {skills.secondary.join(", ")}
+                        </Text>
+                    )}
+                    {skills.tooling.length > 0 && (
+                        <Text style={s.skillLine}>
+                            <Text style={s.skillCategory}>
+                                {label(locale, "Tools: ", "Herramientas: ")}
+                            </Text>
+                            {skills.tooling.join(", ")}
+                        </Text>
+                    )}
+                </View>
+
+                {/* ========== CERTIFICATIONS ========== */}
+                {certifications.length > 0 && (
+                    <>
+                        <View style={s.thinDivider} />
+                        <View style={s.section}>
+                            <Text style={s.sectionTitle}>
+                                {label(locale, "CERTIFICATIONS", "CERTIFICACIONES")}
+                            </Text>
+                            {certifications.map((cert, i) => (
+                                <View key={i} style={s.certEntry}>
+                                    <Text style={s.certName}>{cert.name}</Text>
+                                    <Text style={s.certMeta}>
+                                        {cert.issuer} · {cert.date}
+                                    </Text>
+                                </View>
+                            ))}
+                        </View>
+                    </>
+                )}
+            </Page>
+        </Document>
+    );
 }

@@ -1,318 +1,223 @@
 {
-    "a11y": {
-        "skipToContent": "Skip to content"
-    },
-    "social": {
-        "email": "Email",
-        "github": "GitHub",
-        "linkedin": "LinkedIn",
-        "website": "Website"
-    },
-    "theme": {
-        "toggleLabel": "Toggle theme",
-        "light": "Light",
-        "dark": "Dark",
-        "system": "System"
-    },
-    "footer": {
-        "builtWith": "Built with",
-        "next": "Next.js",
-        "shadcn": "shadcn/ui"
-    },
-    "portfolioData": {
-        "person": {
-            "fullName": "Jean Ortiz",
-            "role": "Full-Stack Developer",
-            "location": "Medellín, Colombia",
-            "availabilityLabel": "Open to opportunities",
-            "shortBio": "I build fast, accessible web applications with great UX, working end-to-end from product thinking to pixel-perfect interfaces and reliable deployments.",
-            "about": [
-                "I’m a frontend-focused full-stack developer with experience building and shipping real-world products in industries like parking systems, fintech payments, and mining operations.",
-                "My work centers on creating scalable, maintainable UI architectures using modern frameworks, with a strong emphasis on performance, accessibility, and developer experience.",
-                "I’ve collaborated closely with product, design, and backend teams to replace manual processes with digital systems, improve operational traceability, and deliver measurable impact in complex, domain-heavy environments.",
-                "I’m especially comfortable working on frontend development, system deployments, and integrating applications into production environments used daily by operational teams."
-            ]
-        },
-        "links": {
-            "email": "jepierre.dev@hotmail.com",
-            "github": "https://github.com/Jepierre88",
-            "linkedin": "https://www.linkedin.com/in/jepierre89",
-            "website": "https://jepierre-dev.vercel.app",
-            "resumePdf": "https://drive.google.com/uc?export=download&id=1IGWYxtKS9WOxW59AkxxJ_IbGRIPVf3pd"
-        },
-        "highlights": [
-            {
-                "label": "Years",
-                "value": "1+",
-                "hint": "Professional experience"
-            },
-            {
-                "label": "Projects",
-                "value": "10+",
-                "hint": "Shipped to production"
-            },
-            {
-                "label": "Focus",
-                "value": "DX + UX",
-                "hint": "Clean, scalable frontends"
-            },
-            {
-                "label": "Main Stack",
-                "value": "Next.js",
-                "hint": "TypeScript, React, APIs"
-            }
-        ],
-        "skills": {
-            "primary": [
-                "TypeScript",
-                "Java",
-                "React",
-                "Next.js",
-                "Node.js",
-                "Spring Boot",
-                "AWS",
-                "Azure",
-                "REST APIs",
-                "Relational Databases (PostgreSQL, MySQL)",
-                "Tailwind CSS"
-            ],
-            "secondary": [
-                "Angular",
-                "Flutter",
-                "Testing",
-                "CI/CD",
-                "Auth",
-                "Payments",
-                "Performance"
-            ],
-            "tooling": [
-                "Git",
-                "Docker",
-                "Vercel",
-                "Storybook",
-                "Playwright"
-            ]
-        },
-        "experience": [
-            {
-                "company": "SunValley Investments",
-                "title": "Frontend Developer",
-                "location": "Hybrid",
-                "start": "June 2025",
-                "end": "Present",
-                "summary": "Worked as part of a cross-functional engineering team focused on digital transformation within the mining sector, improving manual processes, gold processing traceability, and internal automation systems.",
-                "bullets": [
-                    "Developed internal web and mobile tools to replace manual workflows, saving operations teams several hours per week.",
-                    "Built user interfaces to support end-to-end traceability of gold processing, improving data visibility and operational control.",
-                    "Implemented secure authentication flows and role-based access control for internal systems used by multiple departments.",
-                    "Contributed to the automation of operational and reporting processes across mining operations.",
-                    "Integrated frontend applications with backend services, third-party APIs, and webhooks to enable real-time data synchronization."
-                ],
-                "tech": [
-                    "Angular",
-                    "Node.js",
-                    "TypeScript",
-                    "Flutter",
-                    "Azure"
-                ]
-            },
-            {
-                "company": "Coins Colombia",
-                "title": "Full-Stack Developer",
-                "location": "On-site",
-                "start": "April 2024",
-                "end": "June 2025",
-                "summary": "Led UI architecture and delivered end-to-end product features for a parking management and electronic device automation platform, building interfaces tightly integrated with real-time hardware and operational systems.",
-                "bullets": [
-                    "Owned the rollout of a design system for parking operation and admin applications, improving UI consistency and usability across the platform.",
-                    "Improved application performance by optimizing rendering and assets, reducing load times for dashboards used to monitor parking operations and connected devices.",
-                    "Partnered closely with product and design to deliver features related to access control, device automation, and real-time monitoring, driving measurable operational impact.",
-                    "Built and maintained frontend interfaces integrated with backend systems connected to electronic devices and sensors deployed in parking facilities."
-                ],
-                "tech": [
-                    "Next.js",
-                    "TypeScript",
-                    "Tailwind",
-                    "LoopBackJS",
-                    "NestJS",
-                    "MySQL",
-                    "AWS",
-                    "Docker"
-                ]
-            }
-        ],
-        "projects": [
-            {
-                "slug": "coins-pay",
-                "name": "Coins Pay",
-                "summary": "A web-based payment gateway that enables secure and seamless payment of parking sessions across multiple parking facilities.",
-                "description": "Coins Pay is a parking-focused payment platform that allows users to pay for parking sessions across different locations. The application integrates with Wompi as the payment provider to securely connect with banking systems. Built with Next.js and deployed on AWS, the platform emphasizes performance, reliability, and a smooth payment experience for real-world parking operations.",
-                "role": "Frontend & Deployments",
-                "highlights": [
-                    "Developed the complete frontend experience for parking session payments using Next.js.",
-                    "Built responsive and accessible user interfaces optimized for mobile-first payment flows.",
-                    "Handled application deployments and environment configuration on AWS.",
-                    "Collaborated with backend and product teams to ensure reliable payment flows and deployment stability."
-                ],
-                "tech": [
-                    "Next.js",
-                    "TypeScript",
-                    "Tailwind",
-                    "AWS"
-                ],
-                "links": {
-                    "live": "https://pay.coins-colombia.com/auth/login"
-                }
-            },
-            {
-                "slug": "aurum-suite",
-                "name": "Aurum Suite",
-                "summary": "A SaaS mining management platform built to track and manage gold processing operations across multiple sites worldwide.",
-                "description": "Aurum Suite is a mining-focused SaaS application designed to digitize and centralize operational data across the gold production lifecycle. The platform supports laboratory processes, weighing and scale operations, plant activities, and multi-site tracking, enabling improved traceability, data accuracy, and operational visibility across global mining locations.",
-                "role": "Frontend Developer",
-                "highlights": [
-                    "Built and maintained a web-based mining management platform using Angular.",
-                    "Developed user interfaces for laboratory workflows, weighing systems, plant operations, and process tracking.",
-                    "Improved traceability and data consistency for gold processing across multiple operational sites.",
-                    "Collaborated with cross-functional teams to modernize manual and fragmented mining processes.",
-                    "Prepared the application architecture for upcoming mobile expansion using Flutter."
-                ],
-                "tech": [
-                    "Angular",
-                    "TypeScript",
-                    "Flutter (planned)"
-                ],
-                "links": {
-                    "live": "https://aurumsuite.com.co/#/auth/login"
-                }
-            },
-            {
-                "slug": "coins-control",
-                "name": "Coins Control",
-                "summary": "A full-stack application designed for the short-term rental sector, enabling property owners to manage bookings and access control seamlessly.",
-                "description": "Coins Control is a management platform for short-term rental properties that allows users to schedule bookings and control smart locks via access codes. The system integrates with smart lock hardware to provide secure, automated property access for guests, enhancing convenience and safety. Built with a full-stack approach, the application covers frontend interfaces and backend services to deliver a smooth, reliable user experience.",
-                "role": "Full-Stack Developer",
-                "highlights": [
-                    "Developed both frontend and backend components to support booking management and smart lock integration.",
-                    "Implemented secure access code generation and validation for smart lock devices.",
-                    "Collaborated with hardware and product teams to ensure seamless integration of IoT devices with the platform."
-                ],
-                "tech": [
-                    "React",
-                    "Next.js",
-                    "Node.js",
-                    "TypeScript",
-                    "Smart Lock APIs"
-                ],
-                "links": {
-                    "live": "https://coins-control-front.vercel.app/"
-                }
-            },
-            {
-                "slug": "chrono-pos",
-                "name": "Chrono POS",
-                "summary": "A point-of-sale (POS) system tailored for retail environments, streamlining sales operations and inventory management.",
-                "description": "Chrono POS is a comprehensive POS solution designed to simplify and accelerate sales transactions while providing real-time inventory tracking and reporting. The system supports cashier workflows, payment processing, and stock management, helping retail businesses improve efficiency and accuracy in daily operations.",
-                "role": "Frontend Developer",
-                "highlights": [
-                    "Built intuitive user interfaces for sales and inventory management using modern frontend technologies.",
-                    "Implemented backend services to handle transactions, inventory updates, and reporting.",
-                    "Integrated payment gateways and ensured secure processing within the platform."
-                ],
-                "tech": [
-                    "React",
-                    "Node.js",
-                    "Next.js",
-                    "TypeScript",
-                    "PostgreSQL"
-                ],
-                "links": {
-                    "live": "https://pos.chronosoft.com.co"
-                }
-            }
-        ],
-        "testimonials": [
-            {
-                "name": "Fabio Sánchez",
-                "title": "Senior Frontend Developer",
-                "company": "SunValley Investments",
-                "quote": "An excellent frontend engineer with a strong product mindset. Consistently delivered high-quality interfaces while improving performance, scalability, and overall user experience across complex systems."
-            },
-            {
-                "name": "Santiago Martinez",
-                "title": "Senior Backend Developer",
-                "company": "SunValley Investments",
-                "quote": "A reliable and proactive teammate who collaborated closely with backend teams to deliver well-integrated features. Strong at understanding complex domains and translating them into effective frontend solutions."
-            },
-            {
-                "name": "Richar Cifuentes",
-                "title": "Junior Backend Developer & ERP Manager",
-                "company": "SunValley Investments",
-                "quote": "A great mentor and collaborator. Helped bridge the gap between frontend, backend, and ERP processes, bringing clarity and structure to complex operational workflows."
-            }
-        ]
-    },
-    "nav": {
-        "about": "About",
-        "work": "Work",
-        "projects": "Projects",
-        "contact": "Contact"
-    },
-    "hero": {
-        "badge": "Web developer",
-        "suffix": "building modern products.",
-        "ctaProjects": "See projects",
-        "downloadResume": "Download resume"
-    },
-    "highlights": {
-        "title": "Highlights",
-        "subtitle": "Fast facts and how I work.",
-        "footer": "Prefer shipping over talking — with clean code and great UX."
-    },
-    "about": {
-        "title": "About",
-        "subtitle": "A quick picture of who I am and how I build.",
-        "coreSkills": "Core skills",
-        "coreSkillsSubtitle": "What I use daily.",
-        "alsoStrong": "Also strong at",
-        "tooling": "Tooling"
-    },
-    "work": {
-        "title": "Experience",
-        "subtitle": "Impact-focused highlights from recent roles."
-    },
-    "projects": {
-        "title": "Projects",
-        "subtitle": "A few things I’m proud of — clear outcomes, clean execution.",
-        "roleLabel": "Role:",
-        "live": "Live",
-        "code": "Code"
-    },
-    "testimonials": {
-        "title": "Testimonials",
-        "subtitle": "Short notes from people I’ve worked with."
-    },
-    "contact": {
-        "title": "Contact",
-        "subtitle": "Tell me what you’re building — I reply fast.",
-        "linksTitle": "Links",
-        "linksSubtitle": "Pick the fastest channel.",
-        "messageTitle": "Message me",
-        "messageSubtitle": "This sends directly (no email app).",
-        "schedule": "Schedule a call"
-    },
-    "form": {
-        "name": "Name",
-        "email": "Email",
-        "subject": "Subject",
-        "message": "Message",
-        "namePlaceholder": "Your name",
-        "emailPlaceholder": "you@domain.com",
-        "subjectPlaceholder": "What are you building?",
-        "messagePlaceholder": "Tell me a bit about the project, timeline, and what you need.",
-        "send": "Send",
-        "sending": "Sending…",
-        "clear": "Clear",
-        "sent": "Sent. I’ll get back to you soon."
-    }
+	"a11y": {
+		"skipToContent": "Skip to content"
+	},
+	"social": {
+		"email": "Email",
+		"github": "GitHub",
+		"linkedin": "LinkedIn",
+		"website": "Website"
+	},
+	"theme": {
+		"toggleLabel": "Toggle theme",
+		"light": "Light",
+		"dark": "Dark",
+		"system": "System"
+	},
+	"footer": {
+		"builtWith": "Built with",
+		"next": "Next.js",
+		"shadcn": "shadcn/ui"
+	},
+	"portfolioData": {
+		"person": {
+			"fullName": "Santiago Martinez Gutierrez",
+			"role": "Software Developer",
+			"location": "Medellín, Colombia",
+			"availabilityLabel": "Open to new challenges",
+			"shortBio": "Software developer with experience in backend and full stack development. Specialist in transforming complex requirements into scalable solutions, focused on database design and cloud deployment with Azure.",
+			"about": [
+				"I'm a software developer with hands-on experience building and maintaining production systems in sectors like mining, electronic invoicing, and enterprise integration.",
+				"My focus is on backend development with NestJS and PostgreSQL, designing robust data models, scalable APIs, and ensuring system quality and stability.",
+				"I've worked closely with cross-functional teams to gather requirements, design solutions, and migrate legacy applications to modern platforms.",
+				"I'm comfortable working on both backend and full stack projects, with experience in Azure deployments, external service integration, and user support."
+			]
+		},
+		"links": {
+			"email": "smartinez9626@gmail.com",
+			"github": "https://github.com/santiagoMGS",
+			"linkedin": "https://www.linkedin.com/in/smartinez9626",
+			"resumePdf": "/api/resume?locale=en"
+		},
+		"highlights": [
+			{ "label": "Years", "value": "3+", "hint": "Professional experience" },
+			{ "label": "Focus", "value": "Backend", "hint": "NestJS, PostgreSQL, Azure" },
+			{ "label": "Stack", "value": "Full Stack", "hint": "Backend + Frontend" },
+			{ "label": "Cloud", "value": "Azure", "hint": "AZ-900 Certified" }
+		],
+		"skills": {
+			"primary": [
+				"NestJS",
+				"PostgreSQL",
+				"TypeScript",
+				"Node.js",
+				"Azure",
+				"Ruby on Rails",
+				"REST APIs",
+				"Data Modeling"
+			],
+			"secondary": [
+				"AngularJS",
+				"Full Stack Development",
+				"System Integration",
+				"Requirements Gathering",
+				"User Support"
+			],
+			"tooling": ["Git", "Docker", "Azure DevOps", "Tableau", "Linux"]
+		},
+		"experience": [
+			{
+				"company": "Sun Valley Investments",
+				"title": "Software Developer",
+				"location": "Medellín, Colombia",
+				"start": "March 2024",
+				"end": "Present",
+				"summary": "Responsible for backend development of a mining traceability application with NestJS and PostgreSQL on Azure.",
+				"bullets": [
+					"Designed and implemented the backend of a mining traceability platform using NestJS and PostgreSQL deployed on Azure.",
+					"Led requirements gathering and data model design for the gold production lifecycle.",
+					"Ensured system quality, performance, and stability through testing and query optimization.",
+					"Supported migration of legacy applications to the new platform, ensuring data integrity.",
+					"Collaborated with frontend and operations teams to integrate complex business workflows."
+				],
+				"tech": ["NestJS", "PostgreSQL", "TypeScript", "Azure", "Node.js", "Docker"]
+			},
+			{
+				"company": "Equimenta",
+				"title": "Full Stack Developer",
+				"location": "Colombia",
+				"start": "February 2022",
+				"end": "March 2024",
+				"summary": "Responsible for full stack development of a legacy application with Ruby on Rails, AngularJS, and PostgreSQL.",
+				"bullets": [
+					"Maintained and evolved a legacy full stack application using Ruby on Rails, AngularJS, and PostgreSQL.",
+					"Designed and implemented integrations with DIAN for electronic invoicing.",
+					"Built a notification system to improve user communication.",
+					"Implemented scalable solutions ensuring data integrity.",
+					"Facilitated report generation in Tableau for business data analysis."
+				],
+				"tech": ["Ruby on Rails", "AngularJS", "PostgreSQL", "Tableau", "REST APIs"]
+			}
+		],
+		"projects": [
+			{
+				"slug": "aurum-suite",
+				"name": "Aurum Suite",
+				"summary": "A SaaS mining traceability platform for monitoring and managing gold processing across multiple sites.",
+				"description": "Backend system to digitize and centralize operational data across the gold production lifecycle. Supports laboratory processes, weighing, plant activities, and multi-site tracking.",
+				"role": "Backend Developer",
+				"highlights": [
+					"Designed the backend architecture and data models with NestJS and PostgreSQL.",
+					"Implemented REST APIs for laboratory workflows, weighing, and plant operations.",
+					"Deployed the application on Azure with CI/CD pipelines.",
+					"Ensured traceability and data consistency for gold processing."
+				],
+				"tech": ["NestJS", "PostgreSQL", "TypeScript", "Azure", "Docker"],
+				"links": {}
+			},
+			{
+				"slug": "equimenta-erp",
+				"name": "Equimenta ERP",
+				"summary": "An electronic invoicing ERP system with DIAN integration for enterprise management.",
+				"description": "Legacy full stack application modernized to support electronic invoicing, inventory management, and business reporting.",
+				"role": "Full Stack Developer",
+				"highlights": [
+					"Implemented DIAN integration for Colombian electronic invoicing.",
+					"Built notification system to improve user communication.",
+					"Designed Tableau reports for business data analysis.",
+					"Ensured data integrity and system scalability."
+				],
+				"tech": ["Ruby on Rails", "AngularJS", "PostgreSQL", "Tableau"],
+				"links": {}
+			}
+		],
+		"education": [
+			{
+				"institution": "Institución Universitaria ITM",
+				"degree": "Systems Engineering",
+				"startDate": "June 2025",
+				"endDate": "December 2027"
+			},
+			{
+				"institution": "Institución Universitaria ITM",
+				"degree": "Software Development Technology",
+				"startDate": "January 2022",
+				"endDate": "March 2025"
+			}
+		],
+		"certifications": [
+			{
+				"name": "Microsoft Certified: Azure Fundamentals (AZ-900)",
+				"issuer": "Microsoft",
+				"date": "December 2024"
+			}
+		]
+	},
+	"nav": {
+		"about": "About",
+		"work": "Work",
+		"projects": "Projects",
+		"contact": "Contact"
+	},
+	"hero": {
+		"badge": "Software developer",
+		"suffix": "building scalable solutions.",
+		"ctaProjects": "See projects",
+		"downloadResume": "Download Resume"
+	},
+	"highlights": {
+		"title": "Highlights",
+		"subtitle": "Fast facts and how I work.",
+		"footer": "Focused on quality, performance, and best practices."
+	},
+	"about": {
+		"title": "About",
+		"subtitle": "A quick picture of who I am and how I build.",
+		"coreSkills": "Core skills",
+		"coreSkillsSubtitle": "What I use daily.",
+		"alsoStrong": "Also strong at",
+		"tooling": "Tooling"
+	},
+	"work": {
+		"title": "Experience",
+		"subtitle": "Impact-focused highlights from recent roles."
+	},
+	"projects": {
+		"title": "Projects",
+		"subtitle": "Systems I've built — clear outcomes, clean execution.",
+		"roleLabel": "Role:",
+		"live": "Live",
+		"code": "Code"
+	},
+	"education": {
+		"title": "Education",
+		"subtitle": "My academic path."
+	},
+	"certifications": {
+		"title": "Certifications",
+		"subtitle": "Professional credentials."
+	},
+	"contact": {
+		"title": "Contact",
+		"subtitle": "Tell me what you're building — I reply fast.",
+		"linksTitle": "Links",
+		"linksSubtitle": "Pick the fastest channel.",
+		"messageTitle": "Message me",
+		"messageSubtitle": "This sends directly (no email app).",
+		"schedule": "Schedule a call"
+	},
+	"form": {
+		"name": "Name",
+		"email": "Email",
+		"subject": "Subject",
+		"message": "Message",
+		"namePlaceholder": "Your name",
+		"emailPlaceholder": "you@domain.com",
+		"subjectPlaceholder": "What are you building?",
+		"messagePlaceholder": "Tell me a bit about the project, timeline, and what you need.",
+		"send": "Send",
+		"sending": "Sending…",
+		"clear": "Clear",
+		"sent": "Sent. I'll get back to you soon."
+	}
 }

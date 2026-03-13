@@ -22,8 +22,6 @@ import { HyperText } from "@/components/ui/hyper-text"
 import { Separator } from "@/components/ui/separator"
 import type { Portfolio } from "@/content/portfolio"
 import { usePortfolioData } from "@/hooks/use-portfolio-data"
-import en from "@/content/locale/en.json"
-import { PortfolioLoader } from "@/components/portfolio/portfolio-loader"
 import {
   ArrowRightIcon,
   GithubIcon,
@@ -152,13 +150,9 @@ function SocialLinks({ links }: { links: Portfolio["links"] }) {
 
 export function PortfolioPage() {
   const { t, i18n } = useTranslation()
-  const { portfolio: dbPortfolio, isLoading } = usePortfolioData()
+  const { portfolio } = usePortfolioData()
 
-  // Show a loader only during the very first hydration from DB.
-  // The page has a JSON fallback, so we explicitly gate this to prevent
-  // a flash of the fallback content before DB data arrives.
-  const [showInitialLoader, setShowInitialLoader] = React.useState(true)
-  const hasCompletedFirstLoad = React.useRef(false)
+  const [showInitialLoader] = React.useState(false)
 
   const [revealStep, setRevealStep] = React.useState(0)
   const [reduceMotion, setReduceMotion] = React.useState(false)
@@ -170,17 +164,6 @@ export function PortfolioPage() {
       setReduceMotion(false)
     }
   }, [])
-
-  React.useEffect(() => {
-    if (hasCompletedFirstLoad.current) return
-    if (!isLoading) {
-      const timeout = window.setTimeout(() => {
-        hasCompletedFirstLoad.current = true
-        setShowInitialLoader(false)
-      }, 280)
-      return () => window.clearTimeout(timeout)
-    }
-  }, [isLoading])
 
   React.useEffect(() => {
     if (showInitialLoader) {
@@ -203,27 +186,6 @@ export function PortfolioPage() {
       timeouts.forEach((id) => window.clearTimeout(id))
     }
   }, [showInitialLoader, reduceMotion])
-
-  // Use database portfolio if available, fallback to locale JSON
-  const portfolio = React.useMemo(() => {
-    // If we have data from the database, use it
-    if (dbPortfolio) {
-      return dbPortfolio as Portfolio
-    }
-    
-    // Fallback to locale JSON while loading or if DB fails
-    const currentLanguage = i18n.language
-    const value = t("portfolioData", { returnObjects: true }) as unknown
-    if (!value || typeof value !== "object" || Array.isArray(value)) {
-      return (en as unknown as { portfolioData: Portfolio }).portfolioData
-    }
-    void currentLanguage
-    return value as Portfolio
-  }, [dbPortfolio, t, i18n.language])
-
-  if (showInitialLoader && isLoading && !dbPortfolio) {
-    return <PortfolioLoader />
-  }
 
   return (
     <div className="bg-background min-h-screen">
@@ -594,6 +556,63 @@ export function PortfolioPage() {
                         ”
                       </p>
                     </CardContent>
+                  </Card>
+                ))}
+              </div>
+              </Section>
+            </div>
+          ) : null}
+
+          {portfolio.education?.length ? (
+            <div className={revealClass(revealStep >= 7, "rise", { delayMs: 30 })}>
+              <Section
+                id="education"
+                title={t("education.title")}
+                subtitle={t("education.subtitle")}
+              >
+              <div className="grid gap-4">
+                {portfolio.education.map((edu) => (
+                  <Card key={`${edu.institution}-${edu.degree}`}>
+                    <CardHeader>
+                      <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                        <CardTitle className="text-lg">
+                          <HyperText as="span" startOnView animateOnHover={false} duration={900}>
+                            {edu.degree}
+                          </HyperText>
+                        </CardTitle>
+                        <div className="text-muted-foreground text-sm">
+                          {edu.startDate} — {edu.endDate ?? ""}
+                        </div>
+                      </div>
+                      <CardDescription>{edu.institution}</CardDescription>
+                    </CardHeader>
+                  </Card>
+                ))}
+              </div>
+              </Section>
+            </div>
+          ) : null}
+
+          {portfolio.certifications?.length ? (
+            <div className={revealClass(revealStep >= 7, "fade", { delayMs: 40 })}>
+              <Section
+                id="certifications"
+                title={t("certifications.title")}
+                subtitle={t("certifications.subtitle")}
+              >
+              <div className="grid gap-4 md:grid-cols-2">
+                {portfolio.certifications.map((cert) => (
+                  <Card key={cert.name}>
+                    <CardHeader>
+                      <CardTitle className="text-base">
+                        <HyperText as="span" startOnView animateOnHover={false} duration={900}>
+                          {cert.name}
+                        </HyperText>
+                      </CardTitle>
+                      <CardDescription>
+                        {cert.issuer} · {cert.date}
+                      </CardDescription>
+                    </CardHeader>
                   </Card>
                 ))}
               </div>

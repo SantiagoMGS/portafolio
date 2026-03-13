@@ -1,6 +1,3 @@
-// Resume module exports
-export * from "./types";
-export * from "./repository";
-export * from "./pdf-service";
-export * from "./converters";
+export { type ResumeData, portfolioToResumeData } from "./types";
+export { generateResumePdf, generateFilename } from "./pdf-service";
 export { ResumeDocumentTemplate } from "./pdf-document";

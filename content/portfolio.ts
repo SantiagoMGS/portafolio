@@ -47,6 +47,21 @@ export type PortfolioHighlight = {
     hint?: string
 }
 
+export type PortfolioEducation = {
+    institution: string
+    degree: string
+    field?: string
+    startDate: string
+    endDate?: string
+    description?: string
+}
+
+export type PortfolioCertification = {
+    name: string
+    issuer: string
+    date: string
+}
+
 export type Portfolio = {
     person: {
         fullName: string
@@ -80,12 +95,16 @@ export type Portfolio = {
     experience: PortfolioExperience[]
     projects: PortfolioProject[]
     testimonials?: PortfolioTestimonial[]
+    education?: PortfolioEducation[]
+    certifications?: PortfolioCertification[]
 }
 
 /**
- * Portfolio data now lives in the locale JSON files:
+ * Portfolio data lives in the locale JSON files:
  * - content/locale/en.json -> portfolioData
  * - content/locale/es.json -> portfolioData
  *
- * This file intentionally keeps only the TypeScript types.
+ * This file keeps only the TypeScript types.
+ * Add a new experience, project, education or certification
+ * in the JSON files and the portfolio + resume PDF updates automatically.
  */

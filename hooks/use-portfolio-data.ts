@@ -2,68 +2,30 @@
 
 import * as React from "react";
 import { useTranslation } from "react-i18next";
-import type { PortfolioWithEducation } from "@/lib/resume";
+import type { Portfolio } from "@/content/portfolio";
+import en from "@/content/locale/en.json";
 
 type UsePortfolioDataResult = {
-    portfolio: PortfolioWithEducation | null;
+    portfolio: Portfolio;
     isLoading: boolean;
-    error: string | null;
-    locale: string;
 };
 
 /**
- * Hook to fetch portfolio data from the database based on current locale.
- * Falls back to provided initial data if fetch fails.
+ * Hook to get portfolio data from the locale JSON files.
+ * Returns typed portfolio data based on the current language.
  */
-export function usePortfolioData(
-    initialData?: PortfolioWithEducation | null
-): UsePortfolioDataResult {
-    const { i18n } = useTranslation();
-    const locale = i18n.language?.split("-")[0] || "en"; // Get base locale (en, es)
+export function usePortfolioData(): UsePortfolioDataResult {
+    const { t, i18n } = useTranslation();
 
-    const [portfolio, setPortfolio] =
-        React.useState<PortfolioWithEducation | null>(initialData ?? null);
-    const [isLoading, setIsLoading] = React.useState(!initialData);
-    const [error, setError] = React.useState<string | null>(null);
-    const [currentLocale, setCurrentLocale] = React.useState(locale);
-
-    React.useEffect(() => {
-        // Only fetch if locale changed or we don't have data
-        if (locale === currentLocale && portfolio) {
-            return;
+    const portfolio = React.useMemo(() => {
+        const value = t("portfolioData", { returnObjects: true }) as unknown;
+        if (!value || typeof value !== "object" || Array.isArray(value)) {
+            return (en as unknown as { portfolioData: Portfolio }).portfolioData;
         }
+        // Force re-computation when language changes
+        void i18n.language;
+        return value as Portfolio;
+    }, [t, i18n.language]);
 
-        const fetchPortfolio = async () => {
-            setIsLoading(true);
-            setError(null);
-
-            try {
-                const response = await fetch(`/api/portfolio?locale=${locale}`);
-
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.error || "Failed to fetch portfolio");
-                }
-
-                const data = await response.json();
-                setPortfolio(data.portfolio);
-                setCurrentLocale(locale);
-            } catch (err) {
-                console.error("Error fetching portfolio:", err);
-                setError(err instanceof Error ? err.message : "Unknown error");
-                // Keep existing data on error
-            } finally {
-                setIsLoading(false);
-            }
-        };
-
-        fetchPortfolio();
-    }, [locale, currentLocale, portfolio]);
-
-    return {
-        portfolio,
-        isLoading,
-        error,
-        locale: currentLocale,
-    };
+    return { portfolio, isLoading: false };
 }

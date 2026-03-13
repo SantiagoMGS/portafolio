@@ -20,6 +20,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: `${en.portfolioData.person.fullName} · ${en.portfolioData.person.role}`,
   description: en.portfolioData.person.shortBio,
+  keywords: ["Santiago Martinez", "Software Developer", "Backend Developer", "NestJS", "PostgreSQL", "Azure", "TypeScript"],
 };
 
 export default function RootLayout({
