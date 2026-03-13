@@ -5,7 +5,10 @@ import en from "@/content/locale/en.json";
 import { ThemeProvider } from "@/components/theme-provider";
 import { I18nProvider } from "@/components/i18n-provider";
 
-const jetbrainsMono = JetBrains_Mono({subsets:['latin'],variable:'--font-sans'});
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,7 +23,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: `${en.portfolioData.person.fullName} · ${en.portfolioData.person.role}`,
   description: en.portfolioData.person.shortBio,
-  keywords: ["Santiago Martinez", "Software Developer", "Backend Developer", "NestJS", "PostgreSQL", "Azure", "TypeScript"],
+  keywords: [
+    "Santiago Martinez",
+    "Software Developer",
+    "Backend Developer",
+    "NestJS",
+    "PostgreSQL",
+    "Azure",
+    "TypeScript",
+  ],
 };
 
 export default function RootLayout({

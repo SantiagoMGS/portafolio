@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { useTranslation } from "react-i18next"
+import * as React from "react";
+import { useTranslation } from "react-i18next";
 
-import { ContactForm } from "@/components/portfolio/contact-form"
-import { SmoothLink } from "@/components/portfolio/smooth-link"
-import { LanguageToggle } from "@/components/language-toggle"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { AnimatedShinyText } from "@/components/ui/animated-shiny-text"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { ContactForm } from "@/components/portfolio/contact-form";
+import { SmoothLink } from "@/components/portfolio/smooth-link";
+import { LanguageToggle } from "@/components/language-toggle";
+import { ThemeToggle } from "@/components/theme-toggle";
+import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -17,23 +17,23 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { HyperText } from "@/components/ui/hyper-text"
-import { Separator } from "@/components/ui/separator"
-import type { Portfolio } from "@/content/portfolio"
-import { usePortfolioData } from "@/hooks/use-portfolio-data"
+} from "@/components/ui/card";
+import { HyperText } from "@/components/ui/hyper-text";
+import { Separator } from "@/components/ui/separator";
+import type { Portfolio } from "@/content/portfolio";
+import { usePortfolioData } from "@/hooks/use-portfolio-data";
 import {
   ArrowRightIcon,
   GithubIcon,
   GlobeIcon,
   LinkedinIcon,
   MailIcon,
-} from "lucide-react"
+} from "lucide-react";
 
-const NUMERIC_CHARACTER_SET = "0123456789+.-".split("")
+const NUMERIC_CHARACTER_SET = "0123456789+.-".split("");
 
 function isMostlyNumeric(value: string) {
-  return /^[0-9+\-\s.]+$/.test(value.trim())
+  return /^[0-9+\-\s.]+$/.test(value.trim());
 }
 
 function Section({
@@ -42,16 +42,21 @@ function Section({
   subtitle,
   children,
 }: {
-  id: string
-  title: string
-  subtitle?: string
-  children: React.ReactNode
+  id: string;
+  title: string;
+  subtitle?: string;
+  children: React.ReactNode;
 }) {
   return (
     <section id={id} className="scroll-mt-24">
       <div className="flex flex-col gap-1">
         <h2 className="text-2xl font-semibold tracking-tight sm:text-3xl">
-          <HyperText as="span" startOnView animateOnHover={false} duration={1100}>
+          <HyperText
+            as="span"
+            startOnView
+            animateOnHover={false}
+            duration={1100}
+          >
             {title}
           </HyperText>
         </h2>
@@ -64,7 +69,7 @@ function Section({
       <Separator className="my-6" />
       {children}
     </section>
-  )
+  );
 }
 
 type RevealVariant =
@@ -73,44 +78,46 @@ type RevealVariant =
   | "drop"
   | "rise"
   | "slide-left"
-  | "slide-right"
+  | "slide-right";
 
 function revealClass(
   isVisible: boolean,
   variant: RevealVariant,
-  options?: { delayMs?: number }
+  options?: { delayMs?: number },
 ) {
-  const delay = options?.delayMs ? ` motion-safe:delay-[${options.delayMs}ms]` : ""
+  const delay = options?.delayMs
+    ? ` motion-safe:delay-[${options.delayMs}ms]`
+    : "";
 
   if (!isVisible) {
-    return "opacity-0 pointer-events-none"
+    return "opacity-0 pointer-events-none";
   }
 
   // Uses tw-animate-css (shadcn) utilities already present in the repo.
   // Adding the classes later triggers the CSS animation, giving us a more
   // expressive, per-block reveal without re-mounting nodes.
   const base =
-    "opacity-100 motion-safe:animate-in motion-safe:duration-700 motion-safe:ease-out will-change-transform"
+    "opacity-100 motion-safe:animate-in motion-safe:duration-700 motion-safe:ease-out will-change-transform";
 
   switch (variant) {
     case "pop":
-      return `${base} motion-safe:fade-in-0 motion-safe:zoom-in-95${delay}`
+      return `${base} motion-safe:fade-in-0 motion-safe:zoom-in-95${delay}`;
     case "drop":
-      return `${base} motion-safe:fade-in-0 motion-safe:slide-in-from-top-6${delay}`
+      return `${base} motion-safe:fade-in-0 motion-safe:slide-in-from-top-6${delay}`;
     case "rise":
-      return `${base} motion-safe:fade-in-0 motion-safe:slide-in-from-bottom-6${delay}`
+      return `${base} motion-safe:fade-in-0 motion-safe:slide-in-from-bottom-6${delay}`;
     case "slide-left":
-      return `${base} motion-safe:fade-in-0 motion-safe:slide-in-from-left-6${delay}`
+      return `${base} motion-safe:fade-in-0 motion-safe:slide-in-from-left-6${delay}`;
     case "slide-right":
-      return `${base} motion-safe:fade-in-0 motion-safe:slide-in-from-right-6${delay}`
+      return `${base} motion-safe:fade-in-0 motion-safe:slide-in-from-right-6${delay}`;
     case "fade":
     default:
-      return `${base} motion-safe:fade-in-0${delay}`
+      return `${base} motion-safe:fade-in-0${delay}`;
   }
 }
 
 function SocialLinks({ links }: { links: Portfolio["links"] }) {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-wrap items-center gap-2">
@@ -145,47 +152,51 @@ function SocialLinks({ links }: { links: Portfolio["links"] }) {
         </Button>
       ) : null}
     </div>
-  )
+  );
 }
 
 export function PortfolioPage() {
-  const { t, i18n } = useTranslation()
-  const { portfolio } = usePortfolioData()
+  const { t, i18n } = useTranslation();
+  const { portfolio } = usePortfolioData();
 
-  const [showInitialLoader] = React.useState(false)
+  const [showInitialLoader] = React.useState(false);
 
-  const [revealStep, setRevealStep] = React.useState(0)
-  const [reduceMotion, setReduceMotion] = React.useState(false)
+  const [revealStep, setRevealStep] = React.useState(0);
+  const [reduceMotion, setReduceMotion] = React.useState(false);
 
   React.useEffect(() => {
     try {
-      setReduceMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+      setReduceMotion(
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+      );
     } catch {
-      setReduceMotion(false)
+      setReduceMotion(false);
     }
-  }, [])
+  }, []);
 
   React.useEffect(() => {
     if (showInitialLoader) {
-      setRevealStep(0)
-      return
+      setRevealStep(0);
+      return;
     }
 
     if (reduceMotion) {
-      setRevealStep(99)
-      return
+      setRevealStep(99);
+      return;
     }
 
-    setRevealStep(1)
-    const timeouts: number[] = []
-    const maxSteps = 9
+    setRevealStep(1);
+    const timeouts: number[] = [];
+    const maxSteps = 9;
     for (let step = 2; step <= maxSteps; step += 1) {
-      timeouts.push(window.setTimeout(() => setRevealStep(step), (step - 1) * 110))
+      timeouts.push(
+        window.setTimeout(() => setRevealStep(step), (step - 1) * 110),
+      );
     }
     return () => {
-      timeouts.forEach((id) => window.clearTimeout(id))
-    }
-  }, [showInitialLoader, reduceMotion])
+      timeouts.forEach((id) => window.clearTimeout(id));
+    };
+  }, [showInitialLoader, reduceMotion]);
 
   return (
     <div className="bg-background min-h-screen">
@@ -207,7 +218,12 @@ export function PortfolioPage() {
             <div className="flex items-start justify-between gap-3 sm:block">
               <div className="min-w-0">
                 <div className="truncate font-semibold tracking-tight">
-                  <HyperText as="span" startOnView animateOnHover={false} duration={900}>
+                  <HyperText
+                    as="span"
+                    startOnView
+                    animateOnHover={false}
+                    duration={900}
+                  >
                     {portfolio.person.fullName}
                   </HyperText>
                 </div>
@@ -250,9 +266,17 @@ export function PortfolioPage() {
         </div>
       </header>
 
-      <main id="content" className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14">
+      <main
+        id="content"
+        className="mx-auto w-full max-w-6xl px-4 py-10 sm:px-6 sm:py-14"
+      >
         <section className="grid gap-6 lg:grid-cols-12 lg:gap-10">
-          <div className={"lg:col-span-7 " + revealClass(revealStep >= 2, "rise", { delayMs: 40 })}>
+          <div
+            className={
+              "lg:col-span-7 " +
+              revealClass(revealStep >= 2, "rise", { delayMs: 40 })
+            }
+          >
             <div className="flex flex-wrap items-center gap-2">
               {portfolio.person.availabilityLabel ? (
                 <Badge variant="secondary">
@@ -279,7 +303,11 @@ export function PortfolioPage() {
               </Button>
               {portfolio.links.resumePdf ? (
                 <Button asChild variant="secondary">
-                  <a href={portfolio.links.resumePdf} target="_blank" rel="noreferrer">
+                  <a
+                    href={portfolio.links.resumePdf}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     {t("hero.downloadResume")}
                   </a>
                 </Button>
@@ -288,11 +316,21 @@ export function PortfolioPage() {
             </div>
           </div>
 
-          <div className={"lg:col-span-5 " + revealClass(revealStep >= 3, "pop", { delayMs: 60 })}>
+          <div
+            className={
+              "lg:col-span-5 " +
+              revealClass(revealStep >= 3, "pop", { delayMs: 60 })
+            }
+          >
             <Card>
               <CardHeader>
                 <CardTitle>
-                  <HyperText as="span" startOnView animateOnHover={false} duration={900}>
+                  <HyperText
+                    as="span"
+                    startOnView
+                    animateOnHover={false}
+                    duration={900}
+                  >
                     {t("highlights.title")}
                   </HyperText>
                 </CardTitle>
@@ -315,7 +353,9 @@ export function PortfolioPage() {
                           animateOnHover={false}
                           duration={900}
                           characterSet={
-                            isMostlyNumeric(item.value) ? NUMERIC_CHARACTER_SET : undefined
+                            isMostlyNumeric(item.value)
+                              ? NUMERIC_CHARACTER_SET
+                              : undefined
                           }
                         >
                           {item.value}
@@ -340,368 +380,505 @@ export function PortfolioPage() {
         <div className="my-12" />
 
         <div className="grid gap-12">
-          <div className={revealClass(revealStep >= 4, "rise", { delayMs: 40 })}>
-            <Section id="about" title={t("about.title")} subtitle={t("about.subtitle")}>
-            <div className="grid gap-8 lg:grid-cols-12">
-              <div className="lg:col-span-8">
-                <div className="grid gap-4">
-                  {portfolio.person.about.map((p) => (
-                    <p key={p} className="text-muted-foreground leading-relaxed">
-                      {p}
-                    </p>
-                  ))}
-                </div>
-              </div>
-              <div className="lg:col-span-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>
-                      <HyperText as="span" startOnView animateOnHover={false} duration={900}>
-                        {t("about.coreSkills")}
-                      </HyperText>
-                    </CardTitle>
-                    <CardDescription>{t("about.coreSkillsSubtitle")}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="flex flex-wrap gap-2">
-                    {portfolio.skills.primary.map((skill) => (
-                      <Badge key={skill} variant="secondary">
-                        {skill}
-                      </Badge>
+          <div
+            className={revealClass(revealStep >= 4, "rise", { delayMs: 40 })}
+          >
+            <Section
+              id="about"
+              title={t("about.title")}
+              subtitle={t("about.subtitle")}
+            >
+              <div className="grid gap-8 lg:grid-cols-12">
+                <div className="lg:col-span-8">
+                  <div className="grid gap-4">
+                    {portfolio.person.about.map((p) => (
+                      <p
+                        key={p}
+                        className="text-muted-foreground leading-relaxed"
+                      >
+                        {p}
+                      </p>
                     ))}
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-
-            {(portfolio.skills.secondary?.length || portfolio.skills.tooling?.length) ? (
-              <div className="mt-8 grid gap-4 lg:grid-cols-2">
-                {portfolio.skills.secondary?.length ? (
+                  </div>
+                </div>
+                <div className="lg:col-span-4">
                   <Card>
                     <CardHeader>
                       <CardTitle>
-                        <HyperText as="span" startOnView animateOnHover={false} duration={900}>
-                          {t("about.alsoStrong")}
+                        <HyperText
+                          as="span"
+                          startOnView
+                          animateOnHover={false}
+                          duration={900}
+                        >
+                          {t("about.coreSkills")}
                         </HyperText>
                       </CardTitle>
+                      <CardDescription>
+                        {t("about.coreSkillsSubtitle")}
+                      </CardDescription>
                     </CardHeader>
                     <CardContent className="flex flex-wrap gap-2">
-                      {portfolio.skills.secondary.map((skill) => (
+                      {portfolio.skills.primary.map((skill) => (
                         <Badge key={skill} variant="secondary">
                           {skill}
                         </Badge>
                       ))}
                     </CardContent>
                   </Card>
-                ) : null}
-
-                {portfolio.skills.tooling?.length ? (
-                  <Card>
-                    <CardHeader>
-                      <CardTitle>
-                        <HyperText as="span" startOnView animateOnHover={false} duration={900}>
-                          {t("about.tooling")}
-                        </HyperText>
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent className="flex flex-wrap gap-2">
-                      {portfolio.skills.tooling.map((tool) => (
-                        <Badge key={tool} variant="secondary">
-                          {tool}
-                        </Badge>
-                      ))}
-                    </CardContent>
-                  </Card>
-                ) : null}
+                </div>
               </div>
-            ) : null}
-            </Section>
-          </div>
 
-          <div className={revealClass(revealStep >= 5, "slide-left", { delayMs: 30 })}>
-            <Section id="work" title={t("work.title")} subtitle={t("work.subtitle")}>
-            <div className="grid gap-4">
-              {portfolio.experience.map((job) => (
-                <Card key={`${job.company}-${job.title}-${job.start}`}>
-                  <CardHeader>
-                    <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                      <CardTitle className="text-lg">
-                        <HyperText as="span" startOnView animateOnHover={false} duration={900}>
-                          {job.title}
-                        </HyperText>
-                        <span> · {job.company}</span>
-                      </CardTitle>
-                      <div className="text-muted-foreground text-sm">
-                        {job.start} — {job.end}
-                        {job.location ? ` · ${job.location}` : ""}
-                      </div>
-                    </div>
-                    {job.summary ? (
-                      <CardDescription>{job.summary}</CardDescription>
-                    ) : null}
-                  </CardHeader>
-                  <CardContent className="grid gap-3">
-                    <ul className="text-muted-foreground grid list-disc gap-2 pl-5">
-                      {job.bullets.map((b) => (
-                        <li key={b}>{b}</li>
-                      ))}
-                    </ul>
-                    {job.tech?.length ? (
-                      <div className="flex flex-wrap gap-2">
-                        {job.tech.map((tch) => (
-                          <Badge key={tch} variant="secondary">
-                            {tch}
+              {portfolio.skills.secondary?.length ||
+              portfolio.skills.tooling?.length ? (
+                <div className="mt-8 grid gap-4 lg:grid-cols-2">
+                  {portfolio.skills.secondary?.length ? (
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>
+                          <HyperText
+                            as="span"
+                            startOnView
+                            animateOnHover={false}
+                            duration={900}
+                          >
+                            {t("about.alsoStrong")}
+                          </HyperText>
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="flex flex-wrap gap-2">
+                        {portfolio.skills.secondary.map((skill) => (
+                          <Badge key={skill} variant="secondary">
+                            {skill}
                           </Badge>
                         ))}
-                      </div>
-                    ) : null}
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                      </CardContent>
+                    </Card>
+                  ) : null}
+
+                  {portfolio.skills.tooling?.length ? (
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>
+                          <HyperText
+                            as="span"
+                            startOnView
+                            animateOnHover={false}
+                            duration={900}
+                          >
+                            {t("about.tooling")}
+                          </HyperText>
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="flex flex-wrap gap-2">
+                        {portfolio.skills.tooling.map((tool) => (
+                          <Badge key={tool} variant="secondary">
+                            {tool}
+                          </Badge>
+                        ))}
+                      </CardContent>
+                    </Card>
+                  ) : null}
+                </div>
+              ) : null}
             </Section>
           </div>
 
-          <div className={revealClass(revealStep >= 6, "slide-right", { delayMs: 30 })}>
+          <div
+            className={revealClass(revealStep >= 5, "slide-left", {
+              delayMs: 30,
+            })}
+          >
+            <Section
+              id="work"
+              title={t("work.title")}
+              subtitle={t("work.subtitle")}
+            >
+              <div className="grid gap-4">
+                {portfolio.experience.map((job) => (
+                  <Card key={`${job.company}-${job.title}-${job.start}`}>
+                    <CardHeader>
+                      <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                        <CardTitle className="text-lg">
+                          <HyperText
+                            as="span"
+                            startOnView
+                            animateOnHover={false}
+                            duration={900}
+                          >
+                            {job.title}
+                          </HyperText>
+                          <span> · {job.company}</span>
+                        </CardTitle>
+                        <div className="text-muted-foreground text-sm">
+                          {job.start} — {job.end}
+                          {job.location ? ` · ${job.location}` : ""}
+                        </div>
+                      </div>
+                      {job.summary ? (
+                        <CardDescription>{job.summary}</CardDescription>
+                      ) : null}
+                    </CardHeader>
+                    <CardContent className="grid gap-3">
+                      <ul className="text-muted-foreground grid list-disc gap-2 pl-5">
+                        {job.bullets.map((b) => (
+                          <li key={b}>{b}</li>
+                        ))}
+                      </ul>
+                      {job.tech?.length ? (
+                        <div className="flex flex-wrap gap-2">
+                          {job.tech.map((tch) => (
+                            <Badge key={tch} variant="secondary">
+                              {tch}
+                            </Badge>
+                          ))}
+                        </div>
+                      ) : null}
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </Section>
+          </div>
+
+          <div
+            className={revealClass(revealStep >= 6, "slide-right", {
+              delayMs: 30,
+            })}
+          >
             <Section
               id="projects"
               title={t("projects.title")}
               subtitle={t("projects.subtitle")}
             >
-            <div className="grid gap-4 md:grid-cols-2">
-              {portfolio.projects.map((project) => (
-                <Card key={project.slug} className="flex flex-col">
-                  <CardHeader>
-                    <CardTitle className="text-lg">
-                      <HyperText as="span" startOnView animateOnHover={false} duration={900}>
-                        {project.name}
-                      </HyperText>
-                    </CardTitle>
-                    <CardDescription>
-                      {project.summary}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="grid gap-4">
-                    {project.role ? (
-                      <div className="text-muted-foreground text-sm">
-                        <span className="font-medium">{t("projects.roleLabel")}</span> {project.role}
-                      </div>
-                    ) : null}
-                    {project.highlights?.length ? (
-                      <ul className="text-muted-foreground grid list-disc gap-2 pl-5 text-sm">
-                        {project.highlights.map((h) => (
-                          <li key={h}>{h}</li>
+              <div className="grid gap-4 md:grid-cols-2">
+                {portfolio.projects.map((project) => (
+                  <Card key={project.slug} className="flex flex-col">
+                    <CardHeader>
+                      <CardTitle className="text-lg">
+                        <HyperText
+                          as="span"
+                          startOnView
+                          animateOnHover={false}
+                          duration={900}
+                        >
+                          {project.name}
+                        </HyperText>
+                      </CardTitle>
+                      <CardDescription>{project.summary}</CardDescription>
+                    </CardHeader>
+                    <CardContent className="grid gap-4">
+                      {project.role ? (
+                        <div className="text-muted-foreground text-sm">
+                          <span className="font-medium">
+                            {t("projects.roleLabel")}
+                          </span>{" "}
+                          {project.role}
+                        </div>
+                      ) : null}
+                      {project.highlights?.length ? (
+                        <ul className="text-muted-foreground grid list-disc gap-2 pl-5 text-sm">
+                          {project.highlights.map((h) => (
+                            <li key={h}>{h}</li>
+                          ))}
+                        </ul>
+                      ) : null}
+                      <div className="flex flex-wrap gap-2">
+                        {project.tech.map((tch) => (
+                          <Badge key={tch} variant="secondary">
+                            {tch}
+                          </Badge>
                         ))}
-                      </ul>
+                      </div>
+                    </CardContent>
+                    {project.links?.live || project.links?.repo ? (
+                      <CardFooter className="mt-auto flex flex-wrap gap-2">
+                        {project.links?.live ? (
+                          <Button asChild className="gap-2">
+                            <a
+                              href={project.links.live}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {t("projects.live")}
+                              <GlobeIcon className="size-4" />
+                            </a>
+                          </Button>
+                        ) : null}
+                        {project.links?.repo ? (
+                          <Button asChild variant="secondary" className="gap-2">
+                            <a
+                              href={project.links.repo}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              {t("projects.code")}
+                              <GithubIcon className="size-4" />
+                            </a>
+                          </Button>
+                        ) : null}
+                      </CardFooter>
                     ) : null}
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tch) => (
-                        <Badge key={tch} variant="secondary">
-                          {tch}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
-                  {(project.links?.live || project.links?.repo) ? (
-                    <CardFooter className="mt-auto flex flex-wrap gap-2">
-                      {project.links?.live ? (
-                        <Button asChild className="gap-2">
-                          <a href={project.links.live} target="_blank" rel="noreferrer">
-                            {t("projects.live")}
-                            <GlobeIcon className="size-4" />
-                          </a>
-                        </Button>
-                      ) : null}
-                      {project.links?.repo ? (
-                        <Button asChild variant="secondary" className="gap-2">
-                          <a href={project.links.repo} target="_blank" rel="noreferrer">
-                            {t("projects.code")}
-                            <GithubIcon className="size-4" />
-                          </a>
-                        </Button>
-                      ) : null}
-                    </CardFooter>
-                  ) : null}
-                </Card>
-              ))}
-            </div>
+                  </Card>
+                ))}
+              </div>
             </Section>
           </div>
 
           {portfolio.testimonials?.length ? (
-            <div className={revealClass(revealStep >= 7, "fade", { delayMs: 40 })}>
+            <div
+              className={revealClass(revealStep >= 7, "fade", { delayMs: 40 })}
+            >
               <Section
                 id="testimonials"
                 title={t("testimonials.title")}
                 subtitle={t("testimonials.subtitle")}
               >
-              <div className="grid gap-4 md:grid-cols-2">
-                {portfolio.testimonials.map((tm) => (
-                  <Card key={`${tm.name}-${tm.quote.slice(0, 16)}`}>
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        <HyperText as="span" startOnView animateOnHover={false} duration={900}>
-                          {tm.name}
-                        </HyperText>
-                      </CardTitle>
-                      {(tm.title || tm.company) ? (
-                        <CardDescription>
-                          {[tm.title, tm.company].filter(Boolean).join(" · ")}
-                        </CardDescription>
-                      ) : null}
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-muted-foreground leading-relaxed">
-                        “
-                        {tm.quote}
-                        ”
-                      </p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+                <div className="grid gap-4 md:grid-cols-2">
+                  {portfolio.testimonials.map((tm) => (
+                    <Card key={`${tm.name}-${tm.quote.slice(0, 16)}`}>
+                      <CardHeader>
+                        <CardTitle className="text-base">
+                          <HyperText
+                            as="span"
+                            startOnView
+                            animateOnHover={false}
+                            duration={900}
+                          >
+                            {tm.name}
+                          </HyperText>
+                        </CardTitle>
+                        {tm.title || tm.company ? (
+                          <CardDescription>
+                            {[tm.title, tm.company].filter(Boolean).join(" · ")}
+                          </CardDescription>
+                        ) : null}
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-muted-foreground leading-relaxed">
+                          “{tm.quote}”
+                        </p>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
               </Section>
             </div>
           ) : null}
 
           {portfolio.education?.length ? (
-            <div className={revealClass(revealStep >= 7, "rise", { delayMs: 30 })}>
+            <div
+              className={revealClass(revealStep >= 7, "rise", { delayMs: 30 })}
+            >
               <Section
                 id="education"
                 title={t("education.title")}
                 subtitle={t("education.subtitle")}
               >
-              <div className="grid gap-4">
-                {portfolio.education.map((edu) => (
-                  <Card key={`${edu.institution}-${edu.degree}`}>
-                    <CardHeader>
-                      <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
-                        <CardTitle className="text-lg">
-                          <HyperText as="span" startOnView animateOnHover={false} duration={900}>
-                            {edu.degree}
-                          </HyperText>
-                        </CardTitle>
-                        <div className="text-muted-foreground text-sm">
-                          {edu.startDate} — {edu.endDate ?? ""}
+                <div className="grid gap-4">
+                  {portfolio.education.map((edu) => (
+                    <Card key={`${edu.institution}-${edu.degree}`}>
+                      <CardHeader>
+                        <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between">
+                          <CardTitle className="text-lg">
+                            <HyperText
+                              as="span"
+                              startOnView
+                              animateOnHover={false}
+                              duration={900}
+                            >
+                              {edu.degree}
+                            </HyperText>
+                          </CardTitle>
+                          <div className="text-muted-foreground text-sm">
+                            {edu.startDate} — {edu.endDate ?? ""}
+                          </div>
                         </div>
-                      </div>
-                      <CardDescription>{edu.institution}</CardDescription>
-                    </CardHeader>
-                  </Card>
-                ))}
-              </div>
+                        <CardDescription>{edu.institution}</CardDescription>
+                      </CardHeader>
+                    </Card>
+                  ))}
+                </div>
               </Section>
             </div>
           ) : null}
 
           {portfolio.certifications?.length ? (
-            <div className={revealClass(revealStep >= 7, "fade", { delayMs: 40 })}>
+            <div
+              className={revealClass(revealStep >= 7, "fade", { delayMs: 40 })}
+            >
               <Section
                 id="certifications"
                 title={t("certifications.title")}
                 subtitle={t("certifications.subtitle")}
               >
-              <div className="grid gap-4 md:grid-cols-2">
-                {portfolio.certifications.map((cert) => (
-                  <Card key={cert.name}>
-                    <CardHeader>
-                      <CardTitle className="text-base">
-                        <HyperText as="span" startOnView animateOnHover={false} duration={900}>
-                          {cert.name}
-                        </HyperText>
-                      </CardTitle>
-                      <CardDescription>
-                        {cert.issuer} · {cert.date}
-                      </CardDescription>
-                    </CardHeader>
-                  </Card>
-                ))}
-              </div>
+                <div className="grid gap-4 md:grid-cols-2">
+                  {portfolio.certifications.map((cert) => (
+                    <Card key={cert.name}>
+                      <CardHeader>
+                        <CardTitle className="text-base">
+                          <HyperText
+                            as="span"
+                            startOnView
+                            animateOnHover={false}
+                            duration={900}
+                          >
+                            {cert.name}
+                          </HyperText>
+                        </CardTitle>
+                        <CardDescription>
+                          {cert.issuer} · {cert.date}
+                        </CardDescription>
+                      </CardHeader>
+                    </Card>
+                  ))}
+                </div>
               </Section>
             </div>
           ) : null}
 
           <div className={revealClass(revealStep >= 8, "pop", { delayMs: 40 })}>
-            <Section id="contact" title={t("contact.title")} subtitle={t("contact.subtitle")}>
-            <div className="grid gap-6 lg:grid-cols-12">
-              <div className="lg:col-span-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>
-                      <HyperText as="span" startOnView animateOnHover={false} duration={900}>
-                        {t("contact.linksTitle")}
-                      </HyperText>
-                    </CardTitle>
-                    <CardDescription>{t("contact.linksSubtitle")}</CardDescription>
-                  </CardHeader>
-                  <CardContent className="grid gap-4">
-                    {portfolio.links.scheduleCall ? (
-                      <Button asChild className="w-full justify-between">
-                        <a href={portfolio.links.scheduleCall} target="_blank" rel="noreferrer">
-                          <span className="font-medium">{t("contact.schedule")}</span>
-                          <ArrowRightIcon className="size-4" />
-                        </a>
-                      </Button>
-                    ) : null}
-
-                    <div className="grid gap-2 sm:grid-cols-2">
-                      <Button asChild variant="secondary" className="h-auto justify-start gap-2 py-3">
-                        <a href={`mailto:${portfolio.links.email}`}>
-                          <MailIcon className="size-4" />
-                          <span className="min-w-0">
-                            <span className="block text-sm font-medium">{t("social.email")}</span>
-                            <span className="text-muted-foreground block truncate text-xs">
-                              {portfolio.links.email}
+            <Section
+              id="contact"
+              title={t("contact.title")}
+              subtitle={t("contact.subtitle")}
+            >
+              <div className="grid gap-6 lg:grid-cols-12">
+                <div className="lg:col-span-4">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>
+                        <HyperText
+                          as="span"
+                          startOnView
+                          animateOnHover={false}
+                          duration={900}
+                        >
+                          {t("contact.linksTitle")}
+                        </HyperText>
+                      </CardTitle>
+                      <CardDescription>
+                        {t("contact.linksSubtitle")}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent className="grid gap-4">
+                      {portfolio.links.scheduleCall ? (
+                        <Button asChild className="w-full justify-between">
+                          <a
+                            href={portfolio.links.scheduleCall}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            <span className="font-medium">
+                              {t("contact.schedule")}
                             </span>
-                          </span>
-                        </a>
-                      </Button>
-
-                      {portfolio.links.linkedin ? (
-                        <Button asChild variant="secondary" className="h-auto justify-start gap-2 py-3">
-                          <a href={portfolio.links.linkedin} target="_blank" rel="noreferrer">
-                            <LinkedinIcon className="size-4" />
-                            <span className="block text-sm font-medium">{t("social.linkedin")}</span>
+                            <ArrowRightIcon className="size-4" />
                           </a>
                         </Button>
                       ) : null}
 
-                      {portfolio.links.github ? (
-                        <Button asChild variant="secondary" className="h-auto justify-start gap-2 py-3">
-                          <a href={portfolio.links.github} target="_blank" rel="noreferrer">
-                            <GithubIcon className="size-4" />
-                            <span className="block text-sm font-medium">{t("social.github")}</span>
+                      <div className="grid gap-2 sm:grid-cols-2">
+                        <Button
+                          asChild
+                          variant="secondary"
+                          className="h-auto justify-start gap-2 py-3"
+                        >
+                          <a href={`mailto:${portfolio.links.email}`}>
+                            <MailIcon className="size-4" />
+                            <span className="min-w-0">
+                              <span className="block text-sm font-medium">
+                                {t("social.email")}
+                              </span>
+                              <span className="text-muted-foreground block truncate text-xs">
+                                {portfolio.links.email}
+                              </span>
+                            </span>
                           </a>
                         </Button>
-                      ) : null}
 
-                      {portfolio.links.website ? (
-                        <Button asChild variant="secondary" className="h-auto justify-start gap-2 py-3">
-                          <a href={portfolio.links.website} target="_blank" rel="noreferrer">
-                            <GlobeIcon className="size-4" />
-                            <span className="block text-sm font-medium">{t("social.website")}</span>
-                          </a>
-                        </Button>
-                      ) : null}
-                    </div>
-                  </CardContent>
-                </Card>
+                        {portfolio.links.linkedin ? (
+                          <Button
+                            asChild
+                            variant="secondary"
+                            className="h-auto justify-start gap-2 py-3"
+                          >
+                            <a
+                              href={portfolio.links.linkedin}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <LinkedinIcon className="size-4" />
+                              <span className="block text-sm font-medium">
+                                {t("social.linkedin")}
+                              </span>
+                            </a>
+                          </Button>
+                        ) : null}
+
+                        {portfolio.links.github ? (
+                          <Button
+                            asChild
+                            variant="secondary"
+                            className="h-auto justify-start gap-2 py-3"
+                          >
+                            <a
+                              href={portfolio.links.github}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <GithubIcon className="size-4" />
+                              <span className="block text-sm font-medium">
+                                {t("social.github")}
+                              </span>
+                            </a>
+                          </Button>
+                        ) : null}
+
+                        {portfolio.links.website ? (
+                          <Button
+                            asChild
+                            variant="secondary"
+                            className="h-auto justify-start gap-2 py-3"
+                          >
+                            <a
+                              href={portfolio.links.website}
+                              target="_blank"
+                              rel="noreferrer"
+                            >
+                              <GlobeIcon className="size-4" />
+                              <span className="block text-sm font-medium">
+                                {t("social.website")}
+                              </span>
+                            </a>
+                          </Button>
+                        ) : null}
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+                <div className="lg:col-span-8">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle>
+                        <HyperText
+                          as="span"
+                          startOnView
+                          animateOnHover={false}
+                          duration={900}
+                        >
+                          {t("contact.messageTitle")}
+                        </HyperText>
+                      </CardTitle>
+                      <CardDescription>
+                        {t("contact.messageSubtitle")}
+                      </CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <ContactForm />
+                    </CardContent>
+                  </Card>
+                </div>
               </div>
-              <div className="lg:col-span-8">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>
-                      <HyperText as="span" startOnView animateOnHover={false} duration={900}>
-                        {t("contact.messageTitle")}
-                      </HyperText>
-                    </CardTitle>
-                    <CardDescription>{t("contact.messageSubtitle")}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <ContactForm />
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
             </Section>
           </div>
         </div>
@@ -727,5 +904,5 @@ export function PortfolioPage() {
         </footer>
       </main>
     </div>
-  )
+  );
 }
