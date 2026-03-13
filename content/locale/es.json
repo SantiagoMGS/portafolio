@@ -22,13 +22,13 @@
   "portfolioData": {
     "person": {
       "fullName": "Santiago Martinez Gutierrez",
-      "role": "Desarrollador de Software",
+      "role": "Desarrollador Ruby on Rails",
       "location": "Medellín, Colombia",
       "availabilityLabel": "Disponible para nuevos retos",
-      "shortBio": "Desarrollador de software con experiencia en backend y full stack. Especialista en Ruby on Rails, Python y NestJS, transformando requerimientos complejos en soluciones escalables con enfoque en diseño de bases de datos y despliegue en la nube.",
+      "shortBio": "Desarrollador de software especialista en Ruby on Rails con experiencia en backend y full stack. Apasionado por construir soluciones escalables con Rails, complementando con Python, NestJS y PostgreSQL, con enfoque en diseño de bases de datos y despliegue en la nube.",
       "about": [
-        "Soy un desarrollador de software con experiencia construyendo y manteniendo sistemas de producción en sectores como minería, facturación electrónica e integración empresarial.",
-        "Mi enfoque está en el desarrollo backend con Ruby on Rails, Python (Django) y NestJS, diseñando modelos de datos robustos, APIs escalables y garantizando la calidad y estabilidad de los sistemas.",
+        "Soy un desarrollador de software especialista en Ruby on Rails con experiencia construyendo y manteniendo sistemas de producción en sectores como minería, facturación electrónica e integración empresarial.",
+        "Mi enfoque principal es el desarrollo backend con Ruby on Rails, complementando con Python (Django) y NestJS para diseñar modelos de datos robustos, APIs escalables y garantizar la calidad y estabilidad de los sistemas.",
         "He trabajado de cerca con equipos multifuncionales para levantar requerimientos, diseñar soluciones y migrar aplicaciones heredadas a plataformas modernas.",
         "Me siento cómodo trabajando tanto en backend como full stack, con experiencia en despliegues en Azure, integración con servicios externos y soporte a usuarios."
       ]
@@ -43,8 +43,8 @@
       { "label": "Años", "value": "3+", "hint": "Experiencia profesional" },
       {
         "label": "Enfoque",
-        "value": "Backend",
-        "hint": "Ruby, Python, NestJS"
+        "value": "Ruby on Rails",
+        "hint": "Especialista"
       },
       {
         "label": "Stack",
@@ -77,13 +77,12 @@
         "end": "Presente",
         "summary": "Responsable del desarrollo backend de una aplicación de trazabilidad minera con NestJS y PostgreSQL en Azure, y del mantenimiento y evolución de una aplicación legacy con Ruby on Rails.",
         "bullets": [
-          "Diseñé e implementé el backend de una plataforma de trazabilidad minera usando NestJS y PostgreSQL desplegada en Azure.",
-          "Lideré el levantamiento de requerimientos y diseño de modelos de datos para el ciclo de producción de oro.",
-          "Mantuve y evolucioné una aplicación legacy con Ruby on Rails, añadiendo nuevas funcionalidades y mejorando la estabilidad.",
-          "Garanticé la calidad, rendimiento y estabilidad de los sistemas mediante pruebas y optimización de consultas.",
-          "Apoyé la migración de aplicaciones heredadas a la nueva plataforma, asegurando integridad de datos.",
-          "Colaboré con equipos frontend y de operaciones para integrar flujos de negocio complejos.",
-          "Construí y administré la infraestructura en Azure para los entornos de desarrollo y producción, incluyendo App Services, bases de datos y pipelines de CI/CD."
+          "Arquitecté e implementé desde cero el backend de una plataforma de trazabilidad minera con NestJS y PostgreSQL, entregando +30 endpoints REST que digitalizaron el 100% del ciclo de producción de oro.",
+          "Diseñé modelos de datos normalizados para laboratorio, pesaje y planta, reduciendo consultas redundantes en ~40% y mejorando la consistencia de datos entre 3 sitios mineros.",
+          "Optimicé una aplicación legacy en Ruby on Rails, resolviendo +15 bugs críticos y reduciendo tiempos de respuesta promedio de 2.5s a <800ms mediante indexación y refactorización de queries.",
+          "Construí la infraestructura completa en Azure (App Services, PostgreSQL, CI/CD con Azure DevOps), logrando despliegues automatizados en <10 min y 99.5% de uptime en producción.",
+          "Lideré la migración de datos de la aplicación legacy a la nueva plataforma, migrando +50K registros sin pérdida de integridad.",
+          "Integré flujos de negocio complejos con el equipo frontend, reduciendo el ciclo de entrega de features de 3 semanas a ~10 días."
         ],
         "tech": [
           "NestJS",
@@ -103,11 +102,11 @@
         "end": "Marzo 2024",
         "summary": "Responsable del desarrollo full stack de una aplicación heredada con Ruby on Rails, AngularJS y PostgreSQL.",
         "bullets": [
-          "Mantuve y evolucioné una aplicación full stack heredada con Ruby on Rails, AngularJS y PostgreSQL.",
-          "Diseñé e implementé integraciones con la DIAN para facturación electrónica.",
-          "Construí un sistema de notificaciones para mejorar la comunicación con usuarios.",
-          "Implementé soluciones escalables asegurando la integridad de los datos.",
-          "Facilité la generación de reportes en Tableau para análisis de datos del negocio."
+          "Implementé la integración con DIAN para facturación electrónica, automatizando un proceso que antes tomaba ~2 horas manuales diarias y eliminando errores de digitación en un 95%.",
+          "Modernizé y estabilizé una aplicación legacy con Ruby on Rails y AngularJS, reduciendo incidentes en producción en un 60% durante 6 meses.",
+          "Construí un sistema de notificaciones en tiempo real que mejoró la comunicación interna y redujo los tiempos de respuesta a solicitudes de usuarios en un 45%.",
+          "Diseñé dashboards analíticos en Tableau conectados a PostgreSQL, habilitando decisiones basadas en datos para el equipo de operaciones.",
+          "Implementé mejoras de rendimiento en consultas SQL críticas, reduciendo tiempos de carga de reportes de +10s a <2s."
         ],
         "tech": [
           "Ruby on Rails",

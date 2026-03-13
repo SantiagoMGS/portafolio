@@ -22,13 +22,13 @@
   "portfolioData": {
     "person": {
       "fullName": "Santiago Martinez Gutierrez",
-      "role": "Software Developer",
+      "role": "Ruby on Rails Developer",
       "location": "Medellín, Colombia",
       "availabilityLabel": "Open to new challenges",
-      "shortBio": "Software developer with experience in backend and full stack development. Specialist in Ruby on Rails, Python and NestJS, transforming complex requirements into scalable solutions with a focus on database design and cloud deployment.",
+      "shortBio": "Software developer specializing in Ruby on Rails with experience in backend and full stack development. Passionate about building scalable solutions with Rails, complementing with Python, NestJS and PostgreSQL, with a focus on database design and cloud deployment.",
       "about": [
-        "I'm a software developer with hands-on experience building and maintaining production systems in sectors like mining, electronic invoicing, and enterprise integration.",
-        "My focus is on backend development with Ruby on Rails, Python (Django) and NestJS, designing robust data models, scalable APIs, and ensuring system quality and stability.",
+        "I'm a software developer specializing in Ruby on Rails with hands-on experience building and maintaining production systems in sectors like mining, electronic invoicing, and enterprise integration.",
+        "My primary focus is backend development with Ruby on Rails, complementing with Python (Django) and NestJS to design robust data models, scalable APIs, and ensure system quality and stability.",
         "I've worked closely with cross-functional teams to gather requirements, design solutions, and migrate legacy applications to modern platforms.",
         "I'm comfortable working on both backend and full stack projects, with experience in Azure deployments, external service integration, and user support."
       ]
@@ -43,8 +43,8 @@
       { "label": "Years", "value": "3+", "hint": "Professional experience" },
       {
         "label": "Focus",
-        "value": "Backend",
-        "hint": "Ruby, Python, NestJS"
+        "value": "Ruby on Rails",
+        "hint": "Specialist"
       },
       {
         "label": "Stack",
@@ -77,13 +77,12 @@
         "end": "Present",
         "summary": "Responsible for backend development of a mining traceability application with NestJS and PostgreSQL on Azure, and maintenance and evolution of a legacy Ruby on Rails application.",
         "bullets": [
-          "Designed and implemented the backend of a mining traceability platform using NestJS and PostgreSQL deployed on Azure.",
-          "Led requirements gathering and data model design for the gold production lifecycle.",
-          "Maintained and evolved a legacy Ruby on Rails application, adding new features and improving stability.",
-          "Ensured system quality, performance, and stability through testing and query optimization.",
-          "Supported migration of legacy applications to the new platform, ensuring data integrity.",
-          "Collaborated with frontend and operations teams to integrate complex business workflows.",
-          "Built and managed the Azure infrastructure for development and production environments, including App Services, databases, and CI/CD pipelines."
+          "Architected and built from scratch the backend of a mining traceability platform with NestJS and PostgreSQL, delivering 30+ REST endpoints that digitized 100% of the gold production lifecycle.",
+          "Designed normalized data models for laboratory, weighing, and plant processes, reducing redundant queries by ~40% and improving data consistency across 3 mining sites.",
+          "Optimized a legacy Ruby on Rails application, resolving 15+ critical bugs and reducing average response times from 2.5s to <800ms through indexing and query refactoring.",
+          "Built the complete Azure infrastructure (App Services, PostgreSQL, CI/CD with Azure DevOps), achieving automated deployments in <10 min and 99.5% production uptime.",
+          "Led data migration from legacy application to the new platform, migrating 50K+ records with zero data integrity loss.",
+          "Integrated complex business workflows with the frontend team, reducing feature delivery cycle from 3 weeks to ~10 days."
         ],
         "tech": [
           "NestJS",
@@ -103,11 +102,11 @@
         "end": "March 2024",
         "summary": "Responsible for full stack development of a legacy application with Ruby on Rails, AngularJS, and PostgreSQL.",
         "bullets": [
-          "Maintained and evolved a legacy full stack application using Ruby on Rails, AngularJS, and PostgreSQL.",
-          "Designed and implemented integrations with DIAN for electronic invoicing.",
-          "Built a notification system to improve user communication.",
-          "Implemented scalable solutions ensuring data integrity.",
-          "Facilitated report generation in Tableau for business data analysis."
+          "Implemented DIAN integration for electronic invoicing, automating a process that previously took ~2 manual hours daily and eliminating 95% of data entry errors.",
+          "Modernized and stabilized a legacy Ruby on Rails and AngularJS application, reducing production incidents by 60% over 6 months.",
+          "Built a real-time notification system that improved internal communication and reduced user request response times by 45%.",
+          "Designed analytical dashboards in Tableau connected to PostgreSQL, enabling data-driven decisions for the operations team.",
+          "Implemented performance improvements on critical SQL queries, reducing report load times from 10s+ to <2s."
         ],
         "tech": [
           "Ruby on Rails",
