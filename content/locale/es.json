@@ -65,11 +65,7 @@
         "REST APIs",
         "Modelado de datos"
       ],
-      "secondary": [
-        "Django",
-        "AngularJS",
-        "Integración de sistemas"
-      ],
+      "secondary": ["Django", "AngularJS", "Integración de sistemas"],
       "tooling": ["Git", "Docker", "Azure DevOps", "Tableau", "Linux"]
     },
     "experience": [
@@ -128,7 +124,7 @@
         "name": "Aurum Suite",
         "summary": "Plataforma SaaS de trazabilidad minera para monitorear y administrar el procesamiento de oro en múltiples sitios.",
         "description": "Sistema backend para digitalizar y centralizar datos operativos del ciclo de producción de oro. Soporta procesos de laboratorio, pesaje, actividades de planta y tracking multi-sitio.",
-        "role": "Desarrollador Backend",
+        "role": "Desarrollador Backend & DevOps",
         "highlights": [
           "Diseñé la arquitectura backend y los modelos de datos con NestJS y PostgreSQL.",
           "Implementé APIs REST para flujos de laboratorio, pesaje y operaciones de planta.",
@@ -136,13 +132,13 @@
           "Garanticé la trazabilidad y consistencia de datos del procesamiento de oro."
         ],
         "tech": ["NestJS", "PostgreSQL", "TypeScript", "Azure", "Docker"],
-        "links": {}
+        "links": { "live": "https://aurumsuite.com.co/#/home" }
       },
       {
-        "slug": "equimenta-erp",
-        "name": "Equimenta ERP",
-        "summary": "Sistema ERP de facturación electrónica con integración DIAN para gestión empresarial.",
-        "description": "Aplicación full stack heredada modernizada para soportar facturación electrónica, gestión de inventarios y reportes de negocio.",
+        "slug": "aurum-legacy",
+        "name": "Aurum Legacy - Colombian Mint",
+        "summary": "Sistema de facturación electrónica con integración DIAN para la gestión operativa de Colombian Mint.",
+        "description": "Aplicación full stack legacy que soporta facturación electrónica, gestión de inventarios y reportes de negocio. Precursora de Aurum Suite.",
         "role": "Desarrollador Full Stack",
         "highlights": [
           "Implementé integración con la DIAN para facturación electrónica colombiana.",
@@ -151,7 +147,56 @@
           "Aseguré la integridad de datos y escalabilidad del sistema."
         ],
         "tech": ["Ruby on Rails", "AngularJS", "PostgreSQL", "Tableau"],
-        "links": {}
+        "links": { "live": "https://aurum.colombianmint.com/#!/page/signin" }
+      },
+      {
+        "slug": "chrono-pos",
+        "name": "ChronoPOS",
+        "summary": "Sistema de facturación POS para pequeños y medianos negocios.",
+        "description": "Aplicación de punto de venta diseñada para agilizar la facturación, control de inventarios y gestión de ventas en comercios.",
+        "role": "Desarrollador Backend & DevOps",
+        "highlights": [
+          "Diseñé la arquitectura backend y los modelos de datos con NestJS, Prisma y PostgreSQL.",
+          "Implementé el sistema de facturación POS con gestión de productos e inventario.",
+          "Configuré el despliegue con Dokploy en VM de Hostinger para producción."
+        ],
+        "tech": ["NestJS", "PostgreSQL", "Prisma", "TypeScript", "Dokploy"],
+        "links": { "live": "https://pos.chronosoft.com.co/" }
+      },
+      {
+        "slug": "chrono-parking",
+        "name": "ChronoParking",
+        "summary": "Sistema de gestión de parqueaderos con control de entradas, salidas y tarifas.",
+        "description": "Aplicación para administrar parqueaderos, controlando el ingreso y salida de vehículos, cálculo automático de tarifas y reportes operativos.",
+        "role": "Desarrollador Backend & DevOps",
+        "highlights": [
+          "Diseñé el modelo de datos para gestión de vehículos, tarifas y espacios.",
+          "Implementé el backend con NestJS, Prisma y PostgreSQL.",
+          "Administré el despliegue y la infraestructura con Dokploy en VM de Hostinger."
+        ],
+        "tech": ["NestJS", "PostgreSQL", "Prisma", "TypeScript", "Dokploy"],
+        "links": { "live": "https://parking.chronosoft.com.co/" }
+      },
+      {
+        "slug": "mipc-admin",
+        "name": "MIPC Admin",
+        "summary": "Sistema de gestión de órdenes de servicio para empresa de soporte técnico, redes y cámaras de seguridad.",
+        "description": "Aplicación web completa para gestionar órdenes de servicio, clientes y operaciones de MIPC Tecnología, empresa de soporte técnico, instalación de redes y cámaras de seguridad en Medellín.",
+        "role": "Desarrollador Full Stack & DevOps",
+        "highlights": [
+          "Desarrollé la aplicación completa en solitario con NestJS (backend) y Next.js (frontend).",
+          "Diseñé el modelo de datos con PostgreSQL para órdenes de servicio, clientes y técnicos.",
+          "Desplegué en servidor on-premise del cliente gestionando con Docker y PM2."
+        ],
+        "tech": [
+          "NestJS",
+          "Next.js",
+          "PostgreSQL",
+          "Docker",
+          "PM2",
+          "TypeScript"
+        ],
+        "links": { "live": "https://admin.mipc.com.co/" }
       }
     ],
     "education": [

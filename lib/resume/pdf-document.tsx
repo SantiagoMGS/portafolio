@@ -308,7 +308,8 @@ export function ResumeDocumentTemplate({ data }: Props) {
                 <View style={s.entryHeader}>
                   <View style={{ flex: 1 }}>
                     <Text style={s.entryTitle}>
-                      {exp.title} — <Text style={s.entryCompany}>{exp.company}</Text>
+                      {exp.title} —{" "}
+                      <Text style={s.entryCompany}>{exp.company}</Text>
                     </Text>
                   </View>
                   <View style={{ alignItems: "flex-end" }}>
@@ -368,31 +369,31 @@ export function ResumeDocumentTemplate({ data }: Props) {
                 {label(locale, "TECHNICAL SKILLS", "HABILIDADES TÉCNICAS")}
               </Text>
             </View>
-          {skills.primary.length > 0 && (
-            <Text style={s.skillLine}>
-              <Text style={s.skillCategory}>
-                {label(locale, "Core: ", "Principales: ")}
+            {skills.primary.length > 0 && (
+              <Text style={s.skillLine}>
+                <Text style={s.skillCategory}>
+                  {label(locale, "Core: ", "Principales: ")}
+                </Text>
+                {skills.primary.join(", ")}
               </Text>
-              {skills.primary.join(", ")}
-            </Text>
-          )}
-          {skills.secondary.length > 0 && (
-            <Text style={s.skillLine}>
-              <Text style={s.skillCategory}>
-                {label(locale, "Additional: ", "Adicionales: ")}
+            )}
+            {skills.secondary.length > 0 && (
+              <Text style={s.skillLine}>
+                <Text style={s.skillCategory}>
+                  {label(locale, "Additional: ", "Adicionales: ")}
+                </Text>
+                {skills.secondary.join(", ")}
               </Text>
-              {skills.secondary.join(", ")}
-            </Text>
-          )}
-          {skills.tooling.length > 0 && (
-            <Text style={s.skillLine}>
-              <Text style={s.skillCategory}>
-                {label(locale, "Tools: ", "Herramientas: ")}
+            )}
+            {skills.tooling.length > 0 && (
+              <Text style={s.skillLine}>
+                <Text style={s.skillCategory}>
+                  {label(locale, "Tools: ", "Herramientas: ")}
+                </Text>
+                {skills.tooling.join(", ")}
               </Text>
-              {skills.tooling.join(", ")}
-            </Text>
-          )}
-        </View>
+            )}
+          </View>
 
           {/* ========== CERTIFICATIONS ========== */}
           {certifications.length > 0 && (
