@@ -81,8 +81,7 @@
           "Diseñé modelos de datos normalizados para laboratorio, pesaje y planta, reduciendo consultas redundantes en ~40% y mejorando la consistencia de datos entre 3 sitios mineros.",
           "Optimicé una aplicación legacy en Ruby on Rails, resolviendo +15 bugs críticos y reduciendo tiempos de respuesta promedio de 2.5s a <800ms mediante indexación y refactorización de queries.",
           "Construí la infraestructura completa en Azure (App Services, PostgreSQL, CI/CD con Azure DevOps), logrando despliegues automatizados en <10 min y 99.5% de uptime en producción.",
-          "Lideré la migración de datos de la aplicación legacy a la nueva plataforma, migrando +50K registros sin pérdida de integridad.",
-          "Integré flujos de negocio complejos con el equipo frontend, reduciendo el ciclo de entrega de features de 3 semanas a ~10 días."
+          "Lideré la migración de datos de la aplicación legacy a la nueva plataforma, migrando +50K registros sin pérdida de integridad."
         ],
         "tech": [
           "NestJS",
@@ -105,7 +104,6 @@
           "Implementé la integración con DIAN para facturación electrónica, automatizando un proceso que antes tomaba ~2 horas manuales diarias y eliminando errores de digitación en un 95%.",
           "Modernizé y estabilizé una aplicación legacy con Ruby on Rails y AngularJS, reduciendo incidentes en producción en un 60% durante 6 meses.",
           "Construí un sistema de notificaciones en tiempo real que mejoró la comunicación interna y redujo los tiempos de respuesta a solicitudes de usuarios en un 45%.",
-          "Diseñé dashboards analíticos en Tableau conectados a PostgreSQL, habilitando decisiones basadas en datos para el equipo de operaciones.",
           "Implementé mejoras de rendimiento en consultas SQL críticas, reduciendo tiempos de carga de reportes de +10s a <2s."
         ],
         "tech": [

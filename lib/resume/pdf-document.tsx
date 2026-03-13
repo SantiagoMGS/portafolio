@@ -50,7 +50,7 @@ const s = StyleSheet.create({
     color: TEXT_PRIMARY,
     backgroundColor: "#ffffff",
     paddingTop: 0,
-    paddingBottom: 24,
+    paddingBottom: 18,
     paddingHorizontal: 0,
   },
 
@@ -58,7 +58,7 @@ const s = StyleSheet.create({
   headerBanner: {
     backgroundColor: BG_HEADER,
     paddingTop: 18,
-    paddingBottom: 14,
+    paddingBottom: 12,
     paddingHorizontal: 40,
     flexDirection: "row",
     alignItems: "center",
@@ -105,13 +105,13 @@ const s = StyleSheet.create({
 
   // Content area (padded)
   content: {
-    paddingHorizontal: 40,
-    paddingTop: 10,
+    paddingHorizontal: 36,
+    paddingTop: 8,
   },
 
   // Section title with colored accent line
   sectionTitleWrapper: {
-    marginBottom: 4,
+    marginBottom: 3,
     borderBottomWidth: 1.5,
     borderBottomColor: DIVIDER_COLOR,
     paddingBottom: 2,
@@ -124,7 +124,7 @@ const s = StyleSheet.create({
     letterSpacing: 1,
   },
   section: {
-    marginBottom: 6,
+    marginBottom: 4,
   },
 
   // Thin divider between sections
@@ -178,19 +178,19 @@ const s = StyleSheet.create({
   // Bullet points
   bulletRow: {
     flexDirection: "row",
-    marginBottom: 2,
+    marginBottom: 1.5,
     paddingLeft: 6,
   },
   bulletDot: {
     width: 8,
-    fontSize: 9.5,
+    fontSize: 9,
     color: ACCENT_LIGHT,
   },
   bulletText: {
     flex: 1,
-    fontSize: 9.5,
+    fontSize: 9,
     color: TEXT_SECONDARY,
-    lineHeight: 1.35,
+    lineHeight: 1.3,
   },
 
   // Skills

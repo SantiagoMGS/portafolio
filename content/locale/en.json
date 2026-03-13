@@ -81,8 +81,7 @@
           "Designed normalized data models for laboratory, weighing, and plant processes, reducing redundant queries by ~40% and improving data consistency across 3 mining sites.",
           "Optimized a legacy Ruby on Rails application, resolving 15+ critical bugs and reducing average response times from 2.5s to <800ms through indexing and query refactoring.",
           "Built the complete Azure infrastructure (App Services, PostgreSQL, CI/CD with Azure DevOps), achieving automated deployments in <10 min and 99.5% production uptime.",
-          "Led data migration from legacy application to the new platform, migrating 50K+ records with zero data integrity loss.",
-          "Integrated complex business workflows with the frontend team, reducing feature delivery cycle from 3 weeks to ~10 days."
+          "Led data migration from legacy application to the new platform, migrating 50K+ records with zero data integrity loss."
         ],
         "tech": [
           "NestJS",
@@ -105,7 +104,6 @@
           "Implemented DIAN integration for electronic invoicing, automating a process that previously took ~2 manual hours daily and eliminating 95% of data entry errors.",
           "Modernized and stabilized a legacy Ruby on Rails and AngularJS application, reducing production incidents by 60% over 6 months.",
           "Built a real-time notification system that improved internal communication and reduced user request response times by 45%.",
-          "Designed analytical dashboards in Tableau connected to PostgreSQL, enabling data-driven decisions for the operations team.",
           "Implemented performance improvements on critical SQL queries, reducing report load times from 10s+ to <2s."
         ],
         "tech": [
