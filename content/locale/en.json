@@ -22,15 +22,15 @@
   "portfolioData": {
     "person": {
       "fullName": "Santiago Martinez Gutierrez",
-      "role": "Software Developer",
+      "role": "Software Engineer",
       "location": "Medellín, Colombia",
-      "availabilityLabel": "Open to new challenges",
-      "shortBio": "Software developer specializing in Ruby on Rails with experience in backend and full stack development. Passionate about building scalable solutions with Rails, complementing with Python, NestJS and PostgreSQL, with a focus on database design and cloud deployment.",
+      "availabilityLabel": "Open to senior engineering roles",
+      "shortBio": "Software engineer with 3+ years owning backend systems end-to-end — from architecture and database design to cloud infrastructure and production operations. Specialized in Ruby on Rails and NestJS with PostgreSQL, delivering high-availability platforms on Azure across mining, invoicing, and enterprise domains.",
       "about": [
-        "I'm a software developer specializing in Ruby on Rails with hands-on experience building and maintaining production systems in sectors like mining, electronic invoicing, and enterprise integration.",
-        "My primary focus is backend development with Ruby on Rails, complementing with NestJS and Python. I have experience designing robust data models, scalable APIs, and ensuring system quality and stability.",
-        "I've worked closely with cross-functional teams to gather requirements, design solutions, and migrate legacy applications to modern platforms.",
-        "I'm comfortable working on both backend and full stack projects, with experience in Azure deployments, external service integration, and user support."
+        "I own and operate production backend systems end-to-end: architecture, database design, API development, cloud infrastructure, CI/CD, and production support. I don't just write code — I make technical decisions and ensure systems run reliably at scale.",
+        "My core stack is Ruby on Rails and NestJS with PostgreSQL, deployed on Azure. I've built platforms from scratch, optimized legacy systems for 3× faster response times, and managed zero-downtime data migrations across 50K+ records.",
+        "I lead technical execution — defining data models, provisioning cloud resources, setting up deployment pipelines, and triaging production issues. I work autonomously and take full accountability for system health and delivery.",
+        "Currently seeking senior backend or full stack roles where I can drive architecture decisions and own critical infrastructure."
       ]
     },
     "links": {
@@ -40,48 +40,48 @@
       "resumePdf": "/api/resume?locale=en"
     },
     "highlights": [
-      { "label": "Years", "value": "3+", "hint": "Professional experience" },
+      { "label": "Years", "value": "3+", "hint": "Production systems" },
       {
         "label": "Focus",
         "value": "Ruby on Rails",
-        "hint": "Specialist"
+        "hint": "Backend specialist"
       },
       {
         "label": "Stack",
         "value": "Full Stack",
-        "hint": "Rails, Django, PostgreSQL"
+        "hint": "Rails, NestJS, PostgreSQL"
       },
       { "label": "Cloud", "value": "Azure", "hint": "AZ-900 Certified" }
     ],
     "skills": {
       "primary": [
         "Ruby on Rails",
-        "Python",
         "NestJS",
         "PostgreSQL",
         "TypeScript",
+        "Python",
         "Node.js",
         "Azure",
         "REST APIs",
-        "Data Modeling"
+        "CI/CD"
       ],
       "secondary": ["Django", "AngularJS", "System Integration"],
-      "tooling": ["Git", "Docker", "Azure DevOps", "Tableau", "Linux"]
+      "tooling": ["Git", "Docker", "Azure DevOps", "Linux", "Tableau"]
     },
     "experience": [
       {
         "company": "Sun Valley Investments",
-        "title": "Software Developer",
+        "title": "Software Engineer",
         "location": "Medellín, Colombia",
         "start": "March 2024",
         "end": "Present",
-        "summary": "Responsible for backend development of a mining traceability application with NestJS and PostgreSQL on Azure, and maintenance and evolution of a legacy Ruby on Rails application.",
+        "summary": "Own the entire backend stack for a mining traceability SaaS — architecture, database administration, Azure infrastructure, CI/CD, and production support — while maintaining and evolving a legacy Ruby on Rails system.",
         "bullets": [
-          "Architected and built from scratch the backend of a mining traceability platform with NestJS and PostgreSQL, delivering 30+ REST endpoints that digitized 100% of the gold production lifecycle.",
-          "Designed normalized data models for laboratory, weighing, and plant processes, reducing redundant queries by ~40% and improving data consistency across 3 mining sites.",
-          "Optimized a legacy Ruby on Rails application, resolving 15+ critical bugs and reducing average response times from 2.5s to <800ms through indexing and query refactoring.",
-          "Built the complete Azure infrastructure (App Services, PostgreSQL, CI/CD with Azure DevOps), achieving automated deployments in <10 min and 99.5% production uptime.",
-          "Led data migration from legacy application to the new platform, migrating 50K+ records with zero data integrity loss."
+          "Architected and shipped a mining traceability platform from zero with NestJS and PostgreSQL, delivering 30+ REST endpoints that digitized 100% of the gold production lifecycle across 3 mining sites.",
+          "Designed and administered the complete database layer — normalized schemas for lab, weighing, and plant domains — cutting redundant queries by ~40% and enforcing data consistency across all sites.",
+          "Owned Azure infrastructure end-to-end: provisioned App Services, PostgreSQL, and CI/CD pipelines with Azure DevOps, achieving automated deployments in <10 min and 99.5% production uptime.",
+          "Drove the stabilization of a legacy Rails application, resolving 15+ critical bugs and reducing average response times from 2.5s to <800ms through strategic indexing and query refactoring.",
+          "Led a zero-loss data migration of 50K+ records from the legacy system to the new platform, designing validation scripts to ensure full data integrity."
         ],
         "tech": [
           "NestJS",
@@ -95,16 +95,16 @@
       },
       {
         "company": "Equimenta",
-        "title": "Full Stack Developer",
+        "title": "Software Engineer",
         "location": "Colombia",
         "start": "February 2022",
         "end": "March 2024",
-        "summary": "Responsible for full stack development of a legacy application with Ruby on Rails, AngularJS, and PostgreSQL.",
+        "summary": "Led full stack development and technical ownership of a legacy Ruby on Rails platform supporting electronic invoicing, inventory, and business reporting.",
         "bullets": [
-          "Implemented DIAN integration for electronic invoicing, automating a process that previously took ~2 manual hours daily and eliminating 95% of data entry errors.",
-          "Modernized and stabilized a legacy Ruby on Rails and AngularJS application, reducing production incidents by 60% over 6 months.",
-          "Built a real-time notification system that improved internal communication and reduced user request response times by 45%.",
-          "Implemented performance improvements on critical SQL queries, reducing report load times from 10s+ to <2s."
+          "Engineered the DIAN electronic invoicing integration, automating a ~2-hour daily manual process and eliminating 95% of data entry errors.",
+          "Stabilized and modernized a legacy Ruby on Rails + AngularJS application, reducing production incidents by 60% over 6 months through systematic debugging and architectural improvements.",
+          "Designed and deployed a real-time notification system that cut internal response times to user requests by 45%.",
+          "Optimized critical SQL queries and database indexes, reducing report generation times from 10s+ to <2s."
         ],
         "tech": [
           "Ruby on Rails",
@@ -120,13 +120,13 @@
         "slug": "aurum-suite",
         "name": "Aurum Suite",
         "summary": "A SaaS mining traceability platform for monitoring and managing gold processing across multiple sites.",
-        "description": "Backend system to digitize and centralize operational data across the gold production lifecycle. Supports laboratory processes, weighing, plant activities, and multi-site tracking.",
-        "role": "Backend Developer & DevOps",
+        "description": "Backend system built from scratch to digitize and centralize operational data across the gold production lifecycle. Supports laboratory, weighing, plant operations, and multi-site tracking.",
+        "role": "Lead Backend Engineer & DevOps",
         "highlights": [
-          "Designed the backend architecture and data models with NestJS and PostgreSQL.",
-          "Implemented REST APIs for laboratory workflows, weighing, and plant operations.",
-          "Deployed the application on Azure with CI/CD pipelines.",
-          "Ensured traceability and data consistency for gold processing."
+          "Architected the backend system and designed normalized data models with NestJS and PostgreSQL.",
+          "Built 30+ REST APIs covering laboratory, weighing, and plant operation workflows.",
+          "Provisioned and managed Azure infrastructure with automated CI/CD pipelines.",
+          "Ensured end-to-end data traceability and consistency across the gold production lifecycle."
         ],
         "tech": ["NestJS", "PostgreSQL", "TypeScript", "Azure", "Docker"],
         "links": { "live": "https://aurumsuite.com.co/#/home" }
@@ -136,12 +136,12 @@
         "name": "Aurum Legacy - Colombian Mint",
         "summary": "Electronic invoicing system with DIAN integration for Colombian Mint's operational management.",
         "description": "Legacy full stack application supporting electronic invoicing, inventory management, and business reporting. Predecessor to Aurum Suite.",
-        "role": "Full Stack Developer",
+        "role": "Lead Full Stack Engineer",
         "highlights": [
-          "Implemented DIAN integration for Colombian electronic invoicing.",
-          "Built notification system to improve user communication.",
-          "Designed Tableau reports for business data analysis.",
-          "Ensured data integrity and system scalability."
+          "Engineered DIAN integration for Colombian electronic invoicing compliance.",
+          "Designed and deployed a real-time notification system for user communication.",
+          "Built Tableau dashboards for operational and business data analysis.",
+          "Owned data integrity and system performance under growing production load."
         ],
         "tech": ["Ruby on Rails", "AngularJS", "PostgreSQL", "Tableau"],
         "links": { "live": "https://aurum.colombianmint.com/#!/page/signin" }
@@ -151,11 +151,11 @@
         "name": "ChronoPOS",
         "summary": "POS invoicing system for small and medium businesses.",
         "description": "Point-of-sale application designed to streamline invoicing, inventory control, and sales management for retail businesses.",
-        "role": "Backend Developer & DevOps",
+        "role": "Backend Engineer & DevOps",
         "highlights": [
-          "Designed the backend architecture and data models with NestJS, Prisma, and PostgreSQL.",
-          "Implemented the POS invoicing system with product and inventory management.",
-          "Set up deployment with Dokploy on a Hostinger VM for production."
+          "Architected the backend with NestJS, Prisma, and PostgreSQL for POS invoicing and inventory management.",
+          "Delivered a production-ready invoicing system with product catalog and stock control.",
+          "Configured production deployment with Dokploy on Hostinger infrastructure."
         ],
         "tech": ["NestJS", "PostgreSQL", "Prisma", "TypeScript", "Dokploy"],
         "links": { "live": "https://pos.chronosoft.com.co/" }
@@ -165,11 +165,11 @@
         "name": "ChronoParking",
         "summary": "Parking lot management system with entry/exit control and rate calculation.",
         "description": "Application for managing parking lots, controlling vehicle entry and exit, automatic rate calculation, and operational reporting.",
-        "role": "Backend Developer & DevOps",
+        "role": "Backend Engineer & DevOps",
         "highlights": [
-          "Designed the data model for vehicle management, rates, and parking spaces.",
-          "Implemented the backend with NestJS, Prisma, and PostgreSQL.",
-          "Managed deployment and infrastructure with Dokploy on a Hostinger VM."
+          "Designed the complete data model for vehicles, rate structures, and parking space allocation.",
+          "Built the backend API layer with NestJS, Prisma, and PostgreSQL.",
+          "Managed deployment and operational infrastructure with Dokploy."
         ],
         "tech": ["NestJS", "PostgreSQL", "Prisma", "TypeScript", "Dokploy"],
         "links": { "live": "https://parking.chronosoft.com.co/" }
@@ -179,11 +179,11 @@
         "name": "MIPC Admin",
         "summary": "Service order management system for a tech support, networking, and security cameras company.",
         "description": "Full web application for managing service orders, clients, and operations at MIPC Tecnología, a tech support, network installation, and security camera company in Medellín.",
-        "role": "Full Stack Developer & DevOps",
+        "role": "Sole Engineer — Full Stack & DevOps",
         "highlights": [
-          "Solo-developed the entire application with NestJS (backend) and Next.js (frontend).",
-          "Designed the PostgreSQL data model for service orders, clients, and technicians.",
-          "Deployed on the client's on-premise server managed with Docker and PM2."
+          "Solo-built the full application — NestJS backend and Next.js frontend — from architecture to deployment.",
+          "Designed the PostgreSQL data model for service orders, client management, and technician dispatch.",
+          "Deployed on-premise with Docker and PM2, managing the full infrastructure lifecycle."
         ],
         "tech": [
           "NestJS",
@@ -229,19 +229,19 @@
     "contact": "Contact"
   },
   "hero": {
-    "badge": "Software developer",
-    "suffix": "building scalable solutions.",
+    "badge": "Software engineer",
+    "suffix": "architecting scalable backend systems.",
     "ctaProjects": "See projects",
     "downloadResume": "Download Resume"
   },
   "highlights": {
     "title": "Highlights",
-    "subtitle": "Fast facts and how I work.",
+    "subtitle": "Quick facts and how I operate.",
     "footer": "Focused on quality, performance, and best practices."
   },
   "about": {
     "title": "About",
-    "subtitle": "A quick picture of who I am and how I build.",
+    "subtitle": "How I build and what I bring to the table.",
     "coreSkills": "Core skills",
     "coreSkillsSubtitle": "What I use daily.",
     "alsoStrong": "Also strong at",
@@ -249,11 +249,11 @@
   },
   "work": {
     "title": "Experience",
-    "subtitle": "Impact-focused highlights from recent roles."
+    "subtitle": "End-to-end ownership and measurable impact."
   },
   "projects": {
     "title": "Projects",
-    "subtitle": "Systems I've built — clear outcomes, clean execution.",
+    "subtitle": "Production systems I've architected and shipped.",
     "roleLabel": "Role:",
     "live": "Live",
     "code": "Code"
