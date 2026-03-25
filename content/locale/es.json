@@ -25,7 +25,7 @@
       "role": "Ingeniero de Software",
       "location": "Medellín, Colombia",
       "availabilityLabel": "Disponible para roles de ingeniería senior",
-      "shortBio": "Ingeniero de software con +3 años liderando sistemas backend de punta a punta — desde arquitectura y diseño de base de datos hasta infraestructura cloud y operaciones en producción. Especializado en Ruby on Rails y NestJS con PostgreSQL, entregando plataformas de alta disponibilidad en Azure para minería, facturación e integración empresarial.",
+      "shortBio": "Ingeniero de software con ownership total de sistemas backend de punta a punta, incluyendo arquitectura, datos e infraestructura cloud, con +4 años de experiencia entregando plataformas de producción. Especializado en Ruby on Rails y NestJS con PostgreSQL, desplegando sistemas de alta disponibilidad en Azure para minería, facturación e integración empresarial.",
       "about": [
         "Lidero y opero sistemas backend en producción de punta a punta: arquitectura, diseño de base de datos, desarrollo de APIs, infraestructura cloud, CI/CD y soporte en producción. No solo escribo código — tomo decisiones técnicas y garantizo que los sistemas funcionen de forma confiable a escala.",
         "Mi stack principal es Ruby on Rails y NestJS con PostgreSQL, desplegado en Azure. He construido plataformas desde cero, optimizado sistemas legacy logrando respuestas 3× más rápidas y gestionado migraciones de datos de +50K registros sin pérdida de integridad.",
@@ -40,7 +40,7 @@
       "resumePdf": "/api/resume?locale=es"
     },
     "highlights": [
-      { "label": "Años", "value": "3+", "hint": "Sistemas en producción" },
+      { "label": "Años", "value": "4+", "hint": "Sistemas en producción" },
       {
         "label": "Enfoque",
         "value": "Ruby on Rails",
@@ -77,7 +77,7 @@
         "end": "Presente",
         "summary": "Dueño del stack backend completo de un SaaS de trazabilidad minera — arquitectura, administración de base de datos, infraestructura Azure, CI/CD y soporte en producción — además del mantenimiento y evolución de un sistema legacy en Ruby on Rails.",
         "bullets": [
-          "Diseñé e implementé desde cero una plataforma de trazabilidad minera con NestJS y PostgreSQL, entregando +30 endpoints REST que digitalizaron el 100% del ciclo de producción de oro en 3 sitios mineros.",
+          "Diseñé y escalé un sistema backend con +200 endpoints REST distribuidos en múltiples dominios, soportando la operación minera de punta a punta y digitalizando el 100% del ciclo de producción.",
           "Diseñé y administré la capa completa de base de datos — esquemas normalizados para laboratorio, pesaje y planta — reduciendo consultas redundantes en ~40% y garantizando consistencia de datos entre todos los sitios.",
           "Gestioné la infraestructura Azure de punta a punta: App Services, PostgreSQL y pipelines CI/CD con Azure DevOps, logrando despliegues automatizados en <10 min y 99.5% de uptime en producción.",
           "Lideré la estabilización de una aplicación legacy en Rails, resolviendo +15 bugs críticos y reduciendo tiempos de respuesta de 2.5s a <800ms mediante indexación estratégica y refactorización de queries.",
@@ -125,8 +125,7 @@
         "description": "Sistema backend construido desde cero para digitalizar y centralizar datos operativos del ciclo de producción de oro. Soporta laboratorio, pesaje, operaciones de planta y tracking multi-sitio.",
         "role": "Ingeniero Backend Lead & DevOps",
         "highlights": [
-          "Diseñé la arquitectura del sistema backend y modelos de datos normalizados con NestJS y PostgreSQL.",
-          "Construí +30 APIs REST para flujos de laboratorio, pesaje y operaciones de planta.",
+          "Diseñé y escalé un sistema backend con +200 endpoints REST en múltiples dominios, soportando la operación minera de punta a punta.",
           "Provisioné y gestioné la infraestructura Azure con pipelines CI/CD automatizados.",
           "Garanticé la trazabilidad y consistencia de datos de punta a punta del ciclo de producción."
         ],

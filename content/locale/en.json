@@ -25,7 +25,7 @@
       "role": "Software Engineer",
       "location": "Medellín, Colombia",
       "availabilityLabel": "Open to senior engineering roles",
-      "shortBio": "Software engineer with 3+ years owning backend systems end-to-end — from architecture and database design to cloud infrastructure and production operations. Specialized in Ruby on Rails and NestJS with PostgreSQL, delivering high-availability platforms on Azure across mining, invoicing, and enterprise domains.",
+      "shortBio": "Software engineer owning end-to-end backend systems, including architecture, data, and cloud infrastructure, with 4+ years of experience delivering production-grade platforms. Specialized in Ruby on Rails and NestJS with PostgreSQL, deploying high-availability systems on Azure across mining, invoicing, and enterprise domains.",
       "about": [
         "I own and operate production backend systems end-to-end: architecture, database design, API development, cloud infrastructure, CI/CD, and production support. I don't just write code — I make technical decisions and ensure systems run reliably at scale.",
         "My core stack is Ruby on Rails and NestJS with PostgreSQL, deployed on Azure. I've built platforms from scratch, optimized legacy systems for 3× faster response times, and managed zero-downtime data migrations across 50K+ records.",
@@ -40,7 +40,7 @@
       "resumePdf": "/api/resume?locale=en"
     },
     "highlights": [
-      { "label": "Years", "value": "3+", "hint": "Production systems" },
+      { "label": "Years", "value": "4+", "hint": "Production systems" },
       {
         "label": "Focus",
         "value": "Ruby on Rails",
@@ -77,7 +77,7 @@
         "end": "Present",
         "summary": "Own the entire backend stack for a mining traceability SaaS — architecture, database administration, Azure infrastructure, CI/CD, and production support — while maintaining and evolving a legacy Ruby on Rails system.",
         "bullets": [
-          "Architected and shipped a mining traceability platform from zero with NestJS and PostgreSQL, delivering 30+ REST endpoints that digitized 100% of the gold production lifecycle across 3 mining sites.",
+          "Architected and scaled a backend system with 200+ REST endpoints across multiple domains, supporting end-to-end mining operations and digitizing 100% of the gold production lifecycle.",
           "Designed and administered the complete database layer — normalized schemas for lab, weighing, and plant domains — cutting redundant queries by ~40% and enforcing data consistency across all sites.",
           "Owned Azure infrastructure end-to-end: provisioned App Services, PostgreSQL, and CI/CD pipelines with Azure DevOps, achieving automated deployments in <10 min and 99.5% production uptime.",
           "Drove the stabilization of a legacy Rails application, resolving 15+ critical bugs and reducing average response times from 2.5s to <800ms through strategic indexing and query refactoring.",
@@ -125,8 +125,7 @@
         "description": "Backend system built from scratch to digitize and centralize operational data across the gold production lifecycle. Supports laboratory, weighing, plant operations, and multi-site tracking.",
         "role": "Lead Backend Engineer & DevOps",
         "highlights": [
-          "Architected the backend system and designed normalized data models with NestJS and PostgreSQL.",
-          "Built 30+ REST APIs covering laboratory, weighing, and plant operation workflows.",
+          "Architected and scaled a backend system with 200+ REST endpoints across multiple domains, supporting end-to-end mining operations.",
           "Provisioned and managed Azure infrastructure with automated CI/CD pipelines.",
           "Ensured end-to-end data traceability and consistency across the gold production lifecycle."
         ],
