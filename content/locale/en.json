@@ -55,17 +55,17 @@
     ],
     "skills": {
       "primary": [
-        "Ruby on Rails",
         "NestJS",
+        "Ruby on Rails",
         "PostgreSQL",
-        "TypeScript",
-        "Python",
-        "Node.js",
         "Azure",
-        "REST APIs",
-        "CI/CD"
+        "CI/CD",
+        "System Architecture",
+        "TypeScript",
+        "Node.js",
+        "REST APIs"
       ],
-      "secondary": ["Django", "AngularJS", "System Integration"],
+      "secondary": ["Python", "Django", "AngularJS", "System Integration"],
       "tooling": ["Git", "Docker", "Azure DevOps", "Linux", "Tableau"]
     },
     "experience": [
@@ -81,7 +81,9 @@
           "Designed and administered the complete database layer — normalized schemas for lab, weighing, and plant domains — cutting redundant queries by ~40% and enforcing data consistency across all sites.",
           "Owned Azure infrastructure end-to-end: provisioned App Services, PostgreSQL, and CI/CD pipelines with Azure DevOps, achieving automated deployments in <10 min and 99.5% production uptime.",
           "Drove the stabilization of a legacy Rails application, resolving 15+ critical bugs and reducing average response times from 2.5s to <800ms through strategic indexing and query refactoring.",
-          "Led a zero-loss data migration of 50K+ records from the legacy system to the new platform, designing validation scripts to ensure full data integrity."
+          "Led a zero-loss data migration of 50K+ records from the legacy system to the new platform, designing validation scripts to ensure full data integrity.",
+          "Provided production support, triaging incidents and ensuring operational continuity in business-critical environments.",
+          "Owned the full system lifecycle: from requirements gathering through deployment to post-release monitoring."
         ],
         "tech": [
           "NestJS",

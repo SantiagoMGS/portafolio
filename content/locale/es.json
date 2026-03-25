@@ -55,17 +55,17 @@
     ],
     "skills": {
       "primary": [
-        "Ruby on Rails",
         "NestJS",
+        "Ruby on Rails",
         "PostgreSQL",
-        "TypeScript",
-        "Python",
-        "Node.js",
         "Azure",
-        "REST APIs",
-        "CI/CD"
+        "CI/CD",
+        "Arquitectura de sistemas",
+        "TypeScript",
+        "Node.js",
+        "REST APIs"
       ],
-      "secondary": ["Django", "AngularJS", "Integración de sistemas"],
+      "secondary": ["Python", "Django", "AngularJS", "Integración de sistemas"],
       "tooling": ["Git", "Docker", "Azure DevOps", "Linux", "Tableau"]
     },
     "experience": [
@@ -77,11 +77,13 @@
         "end": "Presente",
         "summary": "Dueño del stack backend completo de un SaaS de trazabilidad minera — arquitectura, administración de base de datos, infraestructura Azure, CI/CD y soporte en producción — además del mantenimiento y evolución de un sistema legacy en Ruby on Rails.",
         "bullets": [
-          "Arquitecté y entregué una plataforma de trazabilidad minera desde cero con NestJS y PostgreSQL, implementando +30 endpoints REST que digitalizaron el 100% del ciclo de producción de oro en 3 sitios mineros.",
+          "Diseñé e implementé desde cero una plataforma de trazabilidad minera con NestJS y PostgreSQL, entregando +30 endpoints REST que digitalizaron el 100% del ciclo de producción de oro en 3 sitios mineros.",
           "Diseñé y administré la capa completa de base de datos — esquemas normalizados para laboratorio, pesaje y planta — reduciendo consultas redundantes en ~40% y garantizando consistencia de datos entre todos los sitios.",
           "Gestioné la infraestructura Azure de punta a punta: App Services, PostgreSQL y pipelines CI/CD con Azure DevOps, logrando despliegues automatizados en <10 min y 99.5% de uptime en producción.",
           "Lideré la estabilización de una aplicación legacy en Rails, resolviendo +15 bugs críticos y reduciendo tiempos de respuesta de 2.5s a <800ms mediante indexación estratégica y refactorización de queries.",
-          "Ejecuté una migración de +50K registros sin pérdida de integridad, diseñando scripts de validación para asegurar la completitud de los datos."
+          "Ejecuté una migración de +50K registros sin pérdida de integridad, diseñando scripts de validación para asegurar la completitud de los datos.",
+          "Brindé soporte técnico en producción, resolviendo incidentes y asegurando continuidad operativa en entornos críticos.",
+          "Asumí ownership total del ciclo de vida del sistema: desde levantamiento de requerimientos hasta monitoreo post-despliegue."
         ],
         "tech": [
           "NestJS",
@@ -123,7 +125,7 @@
         "description": "Sistema backend construido desde cero para digitalizar y centralizar datos operativos del ciclo de producción de oro. Soporta laboratorio, pesaje, operaciones de planta y tracking multi-sitio.",
         "role": "Ingeniero Backend Lead & DevOps",
         "highlights": [
-          "Arquitecté el sistema backend y diseñé modelos de datos normalizados con NestJS y PostgreSQL.",
+          "Diseñé la arquitectura del sistema backend y modelos de datos normalizados con NestJS y PostgreSQL.",
           "Construí +30 APIs REST para flujos de laboratorio, pesaje y operaciones de planta.",
           "Provisioné y gestioné la infraestructura Azure con pipelines CI/CD automatizados.",
           "Garanticé la trazabilidad y consistencia de datos de punta a punta del ciclo de producción."
